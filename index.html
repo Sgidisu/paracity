@@ -97,3 +97,52 @@
 
 </body>
 </html>
+<div class="max-w-4xl mx-auto my-16 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden font-sans">
+    <div class="bg-slate-900 p-8 text-white">
+        <h2 class="text-2xl font-bold tracking-tight">Institutional Asset Valuation</h2>
+        <p class="text-slate-400 text-sm mt-1">Estimate market value based on Net Operating Income and regional Cap Rate benchmarks.</p>
+    </div>
+
+    <div class="p-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-8">
+            <div class="relative">
+                <label class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Annual NOI</label>
+                <div class="flex items-center">
+                    <span class="absolute left-4 text-slate-400 font-bold">$</span>
+                    <input type="number" id="noi" class="w-full pl-10 pr-4 py-4 bg-slate-50 border-2 border-slate-100 rounded-xl focus:border-teal-600 focus:bg-white outline-none transition-all text-lg font-bold" placeholder="500,000">
+                </div>
+            </div>
+
+            <div class="relative">
+                <label class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Market Cap Rate</label>
+                <div class="flex items-center">
+                    <input type="number" id="capRate" step="0.1" class="w-full pl-4 pr-12 py-4 bg-slate-50 border-2 border-slate-100 rounded-xl focus:border-teal-600 focus:bg-white outline-none transition-all text-lg font-bold" placeholder="5.5">
+                    <span class="absolute right-4 text-slate-400 font-bold">%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-teal-50 rounded-2xl p-10 text-center border-2 border-teal-100 flex flex-col justify-center min-h-[220px]">
+            <span class="text-[10px] font-black text-teal-700 uppercase tracking-[0.2em] mb-4">Estimated Acquisition Price</span>
+            <div id="valuationDisplay" class="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter mb-2">$0</div>
+            <div class="h-1 w-12 bg-teal-600 mx-auto rounded-full"></div>
+            <p class="text-[10px] text-slate-500 mt-6 italic uppercase tracking-tighter">Derived via $V = \frac{NOI}{R}$ analysis</p>
+        </div>
+    </div>
+</div>
+<script>
+const noiInput = document.getElementById('noi');
+const capInput = document.getElementById('capRate');
+const display = document.getElementById('valuationDisplay');
+
+function updateValuation() {
+    const noi = parseFloat(noiInput.value);
+    const capRate = parseFloat(capInput.value) / 100;
+    if (noi > 0 && capRate > 0) {
+        const valuation = noi / capRate;
+        display.innerText = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(valuation);
+    } else { display.innerText = "$0"; }
+}
+noiInput.addEventListener('input', updateValuation);
+capInput.addEventListener('input', updateValuation);
+</script>
