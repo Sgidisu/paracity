@@ -97,3 +97,42 @@
 
 </body>
 </html>
+<div class="max-w-4xl mx-auto my-12 p-6 bg-gray-50 rounded-2xl border border-gray-200 shadow-sm font-sans">
+  <div class="mb-8">
+    <h2 class="text-2xl font-bold text-gray-900">Commercial Asset Valuation</h2>
+    <p class="text-gray-600">Estimate property value based on NOI and Cap Rates.</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="space-y-6">
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-2">Annual NOI ($)</label>
+        <input type="number" id="noi" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="500000">
+      </div>
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-2">Market Cap Rate (%)</label>
+        <input type="number" id="capRate" step="0.1" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="5.5">
+      </div>
+    </div>
+    <div class="flex flex-col justify-center items-center p-8 bg-blue-900 rounded-xl text-white">
+      <span class="text-blue-200 uppercase tracking-widest text-xs font-bold mb-2">Estimated Value</span>
+      <div id="valuationDisplay" class="text-4xl font-extrabold mb-4">$0</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const noiInput = document.getElementById('noi');
+const capInput = document.getElementById('capRate');
+const display = document.getElementById('valuationDisplay');
+
+function updateValuation() {
+    const noi = parseFloat(noiInput.value);
+    const capRate = parseFloat(capInput.value) / 100;
+    if (noi > 0 && capRate > 0) {
+        const valuation = noi / capRate;
+        display.innerText = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(valuation);
+    } else { display.innerText = "$0"; }
+}
+noiInput.addEventListener('input', updateValuation);
+capInput.addEventListener('input', updateValuation);
+</script>
