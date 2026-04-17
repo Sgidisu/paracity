@@ -1,34 +1,55 @@
-<div class="max-w-4xl mx-auto my-12 p-6 bg-gray-50 rounded-2xl border border-gray-200 shadow-sm font-sans">
-  <div class="mb-8">
-    <h2 class="text-2xl font-bold text-gray-900">Commercial Asset Valuation</h2>
-    <p class="text-gray-600">Estimate property value based on Net Operating Income and Market Cap Rates.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Paracity | Cap Rate Calculator</title>
+</head>
+<body class="bg-slate-50 p-6 md:p-12 font-sans">
+
+<div class="max-w-4xl mx-auto bg-white rounded-2xl border border-gray-200 shadow-xl overflow-hidden">
+  <div class="p-8 border-b border-gray-100 bg-white">
+    <h2 class="text-2xl font-bold text-gray-900">Asset Valuation & Sensitivity Analysis</h2>
+    <p class="text-gray-500 text-sm">Professional grade tool for institutional real estate analysis.</p>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <div class="p-8 grid grid-cols-1 md:grid-cols-2 gap-8 border-b border-gray-100">
     <div class="space-y-6">
       <div>
-        <label for="noi" class="block text-sm font-semibold text-gray-700 mb-2">Annual Net Operating Income (NOI)</label>
-        <div class="relative">
-          <span class="absolute left-3 top-2 text-gray-400">$</span>
-          <input type="number" id="noi" class="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="500,000">
-        </div>
+        <label class="block text-sm font-semibold text-gray-700 mb-2">Annual Net Operating Income ($)</label>
+        <input type="number" id="noi" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 outline-none" placeholder="500000">
       </div>
-
       <div>
-        <label for="capRate" class="block text-sm font-semibold text-gray-700 mb-2">Market Cap Rate (%)</label>
-        <div class="relative">
-          <input type="number" id="capRate" step="0.1" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="5.5">
-          <span class="absolute right-3 top-2 text-gray-400">%</span>
-        </div>
+        <label class="block text-sm font-semibold text-gray-700 mb-2">Target Cap Rate (%)</label>
+        <input type="number" id="capRate" step="0.01" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 outline-none" placeholder="5.5">
       </div>
     </div>
 
-    <div class="flex flex-col justify-center items-center p-8 bg-blue-900 rounded-xl text-white shadow-inner">
-      <span class="text-blue-200 uppercase tracking-widest text-xs font-bold mb-2">Estimated Asset Value</span>
+    <div class="flex flex-col justify-center items-center p-8 bg-blue-900 rounded-xl text-white">
+      <span class="text-blue-200 uppercase tracking-widest text-xs font-bold mb-2 text-center">Base Case Valuation</span>
       <div id="valuationDisplay" class="text-4xl md:text-5xl font-extrabold mb-4">$0</div>
-      <button class="mt-4 px-6 py-2 bg-white text-blue-900 font-bold rounded-full hover:bg-blue-50 transition-colors shadow-md">
-        Download Full Report
+      <button class="w-full py-3 bg-white text-blue-900 font-bold rounded-lg hover:bg-blue-50 transition shadow-md">
+        Schedule Consultation
       </button>
+    </div>
+  </div>
+
+  <div class="p-8 bg-gray-50">
+    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Market Sensitivity (+/- 0.50% Cap Shift)</h3>
+    <div class="grid grid-cols-3 gap-4 text-center">
+      <div class="p-4 bg-white rounded-lg border border-gray-200">
+        <p class="text-[10px] text-gray-500 uppercase mb-1">-0.50% (Bull)</p>
+        <p id="bestCase" class="text-lg font-bold text-emerald-600">$0</p>
+      </div>
+      <div class="p-4 bg-blue-50 rounded-lg border border-blue-100">
+        <p class="text-[10px] text-blue-500 uppercase mb-1">Market Base</p>
+        <p id="baseCaseTable" class="text-lg font-bold text-blue-900">$0</p>
+      </div>
+      <div class="p-4 bg-white rounded-lg border border-gray-200">
+        <p class="text-[10px] text-gray-500 uppercase mb-1">+0.50% (Bear)</p>
+        <p id="worstCase" class="text-lg font-bold text-red-600">$0</p>
+      </div>
     </div>
   </div>
 </div>
@@ -37,23 +58,32 @@
 const noiInput = document.getElementById('noi');
 const capInput = document.getElementById('capRate');
 const display = document.getElementById('valuationDisplay');
+const bestCaseDisplay = document.getElementById('bestCase');
+const baseCaseTable = document.getElementById('baseCaseTable');
+const worstCaseDisplay = document.getElementById('worstCase');
 
-function updateValuation() {
+function formatCurrency(val) {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(val);
+}
+
+function calculate() {
     const noi = parseFloat(noiInput.value);
-    const capRate = parseFloat(capInput.value) / 100;
+    const cap = parseFloat(capInput.value) / 100;
 
-    if (noi > 0 && capRate > 0) {
-        const valuation = noi / capRate;
-        display.innerText = new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD',
-            maximumFractionDigits: 0
-        }).format(valuation);
-    } else {
-        display.innerText = "$0";
+    if (noi > 0 && cap > 0) {
+        const baseVal = noi / cap;
+        display.innerText = formatCurrency(baseVal);
+        baseCaseTable.innerText = formatCurrency(baseVal);
+        
+        // Sensitivity Logic
+        bestCaseDisplay.innerText = formatCurrency(noi / (cap - 0.005));
+        worstCaseDisplay.innerText = formatCurrency(noi / (cap + 0.005));
     }
 }
 
-noiInput.addEventListener('input', updateValuation);
-capInput.addEventListener('input', updateValuation);
+noiInput.addEventListener('input', calculate);
+capInput.addEventListener('input', calculate);
 </script>
+
+</body>
+</html>
