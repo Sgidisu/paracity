@@ -9,7 +9,7 @@
     <style>
         body { font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
         .hero-bg {
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)),
                         url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
@@ -20,10 +20,9 @@
 
     <nav class="flex justify-between items-center p-6 bg-white shadow-sm sticky top-0 z-50">
         <div class="text-2xl font-bold tracking-tighter text-slate-800">PARA<span class="text-teal-600">CITY</span></div>
-        
         <div class="hidden md:flex items-center space-x-8 font-medium text-slate-600">
             <a href="#services" class="hover:text-teal-600 transition">Services</a>
-            <a href="calculator.html" class="hover:text-teal-600 transition">Valuation Tool</a>
+            <a href="#calculator" class="hover:text-teal-600 transition">Valuation Tool</a>
             <a href="portal.html" class="bg-slate-900 text-white px-6 py-2 rounded-md hover:bg-teal-600 transition">Owner Portal</a>
         </div>
     </nav>
@@ -33,7 +32,7 @@
             <h1 class="text-5xl md:text-6xl font-bold mb-6">Strategic Commercial Assets. Professional Management.</h1>
             <p class="text-xl mb-10 font-light text-slate-300">Paracity Real Estate LLC specializes in high-yield commercial development and institutional-grade property oversight.</p>
             <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="calculator.html" class="bg-teal-600 text-white px-8 py-4 rounded-md font-bold hover:bg-teal-500 transition text-center">Analyze Asset Value</a>
+                <a href="#calculator" class="bg-teal-600 text-white px-8 py-4 rounded-md font-bold hover:bg-teal-500 transition text-center">Analyze Asset Value</a>
                 <a href="#contact" class="bg-transparent border border-white px-8 py-4 rounded-md font-bold hover:bg-white hover:text-slate-900 transition text-center">Request a Proposal</a>
             </div>
         </div>
@@ -62,7 +61,6 @@
                 <h2 class="text-4xl font-bold text-slate-900 mb-4">Core Competencies</h2>
                 <div class="h-1 w-20 bg-teal-600"></div>
             </div>
-            
             <div class="grid md:grid-cols-2 gap-10">
                 <div class="group p-10 border border-slate-200 hover:border-teal-600 transition-all duration-300">
                     <h3 class="text-2xl font-bold mb-4 group-hover:text-teal-600">Asset Management</h3>
@@ -75,6 +73,42 @@
                     <p class="text-slate-600 leading-relaxed">
                         From site selection to certificate of occupancy, we handle the complexities of urban zoning, entitlements, and sustainable construction for commercial growth.
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="py-24 bg-slate-50">
+        <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden font-sans">
+            <div class="bg-slate-900 p-8 text-white">
+                <h2 class="text-2xl font-bold tracking-tight">Institutional Asset Valuation</h2>
+                <p class="text-slate-400 text-sm mt-1">Estimate market value based on Net Operating Income and regional Cap Rate benchmarks.</p>
+            </div>
+
+            <div class="p-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="relative">
+                        <label class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Annual NOI</label>
+                        <div class="flex items-center">
+                            <span class="absolute left-4 text-slate-400 font-bold">$</span>
+                            <input type="number" id="noi" class="w-full pl-10 pr-4 py-4 bg-slate-50 border-2 border-slate-100 rounded-xl focus:border-teal-600 focus:bg-white outline-none transition-all text-lg font-bold" placeholder="500,000">
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <label class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Market Cap Rate</label>
+                        <div class="flex items-center">
+                            <input type="number" id="capRate" step="0.1" class="w-full pl-4 pr-12 py-4 bg-slate-50 border-2 border-slate-100 rounded-xl focus:border-teal-600 focus:bg-white outline-none transition-all text-lg font-bold" placeholder="5.5">
+                            <span class="absolute right-4 text-slate-400 font-bold">%</span>
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="bg-teal-50 rounded-2xl p-10 text-center border-2 border-teal-100 flex flex-col justify-center min-h-[220px]">
+                    <span class="text-[10px] font-black text-teal-700 uppercase tracking-[0.2em] mb-4">Estimated Acquisition Price</span>
+                    <div id="valuationDisplay" class="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter mb-2">$0</div>
+                    <div class="h-1 w-12 bg-teal-600 mx-auto rounded-full"></div>
+                    <p class="text-[10px] text-slate-500 mt-6 italic uppercase tracking-tighter">Derived via $V = \frac{NOI}{R}$ analysis</p>
                 </div>
             </div>
         </div>
@@ -95,54 +129,21 @@
         </div>
     </footer>
 
+    <script>
+        const noiInput = document.getElementById('noi');
+        const capInput = document.getElementById('capRate');
+        const display = document.getElementById('valuationDisplay');
+
+        function updateValuation() {
+            const noi = parseFloat(noiInput.value);
+            const capRate = parseFloat(capInput.value) / 100;
+            if (noi > 0 && capRate > 0) {
+                const valuation = noi / capRate;
+                display.innerText = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(valuation);
+            } else { display.innerText = "$0"; }
+        }
+        noiInput.addEventListener('input', updateValuation);
+        capInput.addEventListener('input', updateValuation);
+    </script>
 </body>
 </html>
-<div class="max-w-4xl mx-auto my-16 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden font-sans">
-    <div class="bg-slate-900 p-8 text-white">
-        <h2 class="text-2xl font-bold tracking-tight">Institutional Asset Valuation</h2>
-        <p class="text-slate-400 text-sm mt-1">Estimate market value based on Net Operating Income and regional Cap Rate benchmarks.</p>
-    </div>
-
-    <div class="p-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div class="space-y-8">
-            <div class="relative">
-                <label class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Annual NOI</label>
-                <div class="flex items-center">
-                    <span class="absolute left-4 text-slate-400 font-bold">$</span>
-                    <input type="number" id="noi" class="w-full pl-10 pr-4 py-4 bg-slate-50 border-2 border-slate-100 rounded-xl focus:border-teal-600 focus:bg-white outline-none transition-all text-lg font-bold" placeholder="500,000">
-                </div>
-            </div>
-
-            <div class="relative">
-                <label class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Market Cap Rate</label>
-                <div class="flex items-center">
-                    <input type="number" id="capRate" step="0.1" class="w-full pl-4 pr-12 py-4 bg-slate-50 border-2 border-slate-100 rounded-xl focus:border-teal-600 focus:bg-white outline-none transition-all text-lg font-bold" placeholder="5.5">
-                    <span class="absolute right-4 text-slate-400 font-bold">%</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-teal-50 rounded-2xl p-10 text-center border-2 border-teal-100 flex flex-col justify-center min-h-[220px]">
-            <span class="text-[10px] font-black text-teal-700 uppercase tracking-[0.2em] mb-4">Estimated Acquisition Price</span>
-            <div id="valuationDisplay" class="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter mb-2">$0</div>
-            <div class="h-1 w-12 bg-teal-600 mx-auto rounded-full"></div>
-            <p class="text-[10px] text-slate-500 mt-6 italic uppercase tracking-tighter">Derived via $V = \frac{NOI}{R}$ analysis</p>
-        </div>
-    </div>
-</div>
-<script>
-const noiInput = document.getElementById('noi');
-const capInput = document.getElementById('capRate');
-const display = document.getElementById('valuationDisplay');
-
-function updateValuation() {
-    const noi = parseFloat(noiInput.value);
-    const capRate = parseFloat(capInput.value) / 100;
-    if (noi > 0 && capRate > 0) {
-        const valuation = noi / capRate;
-        display.innerText = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(valuation);
-    } else { display.innerText = "$0"; }
-}
-noiInput.addEventListener('input', updateValuation);
-capInput.addEventListener('input', updateValuation);
-</script>
