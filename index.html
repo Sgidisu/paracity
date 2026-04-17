@@ -97,25 +97,69 @@
 
 </body>
 </html>
-<div class="max-w-4xl mx-auto my-12 p-6 bg-gray-50 rounded-2xl border border-gray-200 shadow-sm font-sans">
-  <div class="mb-8">
-    <h2 class="text-2xl font-bold text-gray-900">Commercial Asset Valuation</h2>
-    <p class="text-gray-600">Estimate property value based on NOI and Cap Rates.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Paracity | Cap Rate Calculator</title>
+</head>
+<body class="bg-slate-50 p-6 md:p-12 font-sans">
+
+<div class="max-w-4xl mx-auto mb-6">
+    <a href="index.html" class="text-sm font-bold text-blue-900 hover:underline">← Back to Paracity Home</a>
+</div>
+
+<div class="max-w-4xl mx-auto bg-white rounded-2xl border border-gray-200 shadow-xl overflow-hidden">
+  <div class="p-8 border-b border-gray-100 bg-white">
+    <h2 class="text-2xl font-bold text-gray-900">Asset Valuation & Sensitivity Analysis</h2>
+    <p class="text-gray-500 text-sm">Professional grade tool for institutional real estate analysis.</p>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+  <div class="p-8 grid grid-cols-1 md:grid-cols-2 gap-8 border-b border-gray-100">
     <div class="space-y-6">
       <div>
-        <label class="block text-sm font-semibold text-gray-700 mb-2">Annual NOI ($)</label>
-        <input type="number" id="noi" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="500000">
+        <label class="block text-sm font-semibold text-gray-700 mb-2">Annual Net Operating Income ($)</label>
+        <div class="relative">
+          <span class="absolute left-3 top-3 text-gray-400">$</span>
+          <input type="number" id="noi" class="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 outline-none" placeholder="500,000">
+        </div>
       </div>
+
       <div>
-        <label class="block text-sm font-semibold text-gray-700 mb-2">Market Cap Rate (%)</label>
-        <input type="number" id="capRate" step="0.1" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="5.5">
+        <label class="block text-sm font-semibold text-gray-700 mb-2">Target Cap Rate (%)</label>
+        <div class="relative">
+          <input type="number" id="capRate" step="0.01" class="w-full pl-4 pr-8 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 outline-none" placeholder="5.5">
+          <span class="absolute right-3 top-3 text-gray-400">%</span>
+        </div>
       </div>
     </div>
-    <div class="flex flex-col justify-center items-center p-8 bg-blue-900 rounded-xl text-white">
-      <span class="text-blue-200 uppercase tracking-widest text-xs font-bold mb-2">Estimated Value</span>
-      <div id="valuationDisplay" class="text-4xl font-extrabold mb-4">$0</div>
+
+    <div class="flex flex-col justify-center items-center p-8 bg-blue-900 rounded-xl text-white shadow-inner">
+      <span class="text-blue-200 uppercase tracking-widest text-xs font-bold mb-2 text-center">Base Case Valuation</span>
+      <div id="valuationDisplay" class="text-4xl md:text-5xl font-extrabold mb-4">$0</div>
+      <button class="w-full py-3 bg-white text-blue-900 font-bold rounded-lg hover:bg-blue-50 transition shadow-md">
+        Schedule Consultation
+      </button>
+    </div>
+  </div>
+
+  <div class="p-8 bg-gray-50">
+    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4 text-center md:text-left">Market Sensitivity (+/- 0.50% Cap Shift)</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+      <div class="p-4 bg-white rounded-lg border border-gray-200">
+        <p class="text-[10px] text-gray-500 uppercase mb-1">-0.50% (Bull Case)</p>
+        <p id="bestCase" class="text-lg font-bold text-emerald-600">$0</p>
+      </div>
+      <div class="p-4 bg-blue-50 rounded-lg border border-blue-100 shadow-sm">
+        <p class="text-[10px] text-blue-500 uppercase mb-1">Market Base</p>
+        <p id="baseCaseTable" class="text-lg font-bold text-blue-900">$0</p>
+      </div>
+      <div class="p-4 bg-white rounded-lg border border-gray-200">
+        <p class="text-[10px] text-gray-500 uppercase mb-1">+0.50% (Bear Case)</p>
+        <p id="worstCase" class="text-lg font-bold text-red-600">$0</p>
+      </div>
     </div>
   </div>
 </div>
@@ -124,15 +168,41 @@
 const noiInput = document.getElementById('noi');
 const capInput = document.getElementById('capRate');
 const display = document.getElementById('valuationDisplay');
+const bestCaseDisplay = document.getElementById('bestCase');
+const baseCaseTable = document.getElementById('baseCaseTable');
+const worstCaseDisplay = document.getElementById('worstCase');
 
-function updateValuation() {
-    const noi = parseFloat(noiInput.value);
-    const capRate = parseFloat(capInput.value) / 100;
-    if (noi > 0 && capRate > 0) {
-        const valuation = noi / capRate;
-        display.innerText = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(valuation);
-    } else { display.innerText = "$0"; }
+function formatCurrency(val) {
+    return new Intl.NumberFormat('en-US', { 
+        style: 'currency', 
+        currency: 'USD', 
+        maximumFractionDigits: 0 
+    }).format(val);
 }
-noiInput.addEventListener('input', updateValuation);
-capInput.addEventListener('input', updateValuation);
+
+function calculate() {
+    const noi = parseFloat(noiInput.value);
+    const cap = parseFloat(capInput.value) / 100;
+
+    if (noi > 0 && cap > 0) {
+        const baseVal = noi / cap;
+        display.innerText = formatCurrency(baseVal);
+        baseCaseTable.innerText = formatCurrency(baseVal);
+        
+        // Sensitivity Logic (+/- 0.5% cap rate)
+        bestCaseDisplay.innerText = formatCurrency(noi / (cap - 0.005));
+        worstCaseDisplay.innerText = formatCurrency(noi / (cap + 0.005));
+    } else {
+        display.innerText = "$0";
+        bestCaseDisplay.innerText = "$0";
+        baseCaseTable.innerText = "$0";
+        worstCaseDisplay.innerText = "$0";
+    }
+}
+
+noiInput.addEventListener('input', calculate);
+capInput.addEventListener('input', calculate);
 </script>
+
+</body>
+</html>
