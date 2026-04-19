@@ -12,7 +12,7 @@
 
     <nav class="p-6 bg-white shadow-sm flex justify-between items-center">
         <div class="text-xl font-bold tracking-tighter">PARA<span class="text-teal-600">CITY</span></div>
-        <a href="index.html" class="text-sm font-bold text-slate-600 hover:text-teal-600">← Back to Site</a>
+        <a href="https://sgidisu.github.io/paracity/" class="text-sm font-bold text-slate-600 hover:text-teal-600">← Back to Main</a>
     </nav>
 
     <section class="max-w-4xl mx-auto py-20 px-6 text-center">
@@ -37,10 +37,20 @@
             </div>
         </div>
 
-        <div class="mt-16 p-10 bg-slate-900 text-white rounded-2xl">
-            <h3 class="text-2xl font-bold mb-4">Request Early Access</h3>
-            <p class="text-slate-400 mb-8">Are you a current Paracity partner? Contact our management team for a temporary manual report.</p>
-            <a href="mailto:portal@paracity.com" class="bg-teal-600 px-8 py-3 rounded-md font-bold hover:bg-teal-500 transition">Contact Support</a>
+        <div class="mt-16 p-10 bg-slate-900 text-white rounded-2xl text-left">
+            <h3 class="text-2xl font-bold mb-4">Request Early Access & Report</h3>
+            <p class="text-slate-400 mb-8">Current partners can request a temporary manual report or a security compliance audit for their Newark assets.</p>
+            
+            <form action="http://127.0.0.1:5000/submit" method="POST" class="grid md:grid-cols-2 gap-4">
+                <input type="text" name="name" placeholder="Full Name" required class="bg-slate-800 border border-slate-700 p-3 rounded text-white focus:outline-none focus:border-teal-500">
+                <input type="email" name="email" placeholder="Professional Email" required class="bg-slate-800 border border-slate-700 p-3 rounded text-white focus:outline-none focus:border-teal-500">
+                <select name="interest" class="bg-slate-800 border border-slate-700 p-3 rounded text-white focus:outline-none focus:border-teal-500 md:col-span-2">
+                    <option value="Portal Access">Request Portal Early Access</option>
+                    <option value="Audit">Request Security/Compliance Audit</option>
+                    <option value="ITIN">ITIN / Foreign Investment Inquiry</option>
+                </select>
+                <button type="submit" class="bg-teal-600 px-8 py-3 rounded-md font-bold hover:bg-teal-500 transition md:col-span-2">Submit Secure Request</button>
+            </form>
         </div>
     </section>
 
