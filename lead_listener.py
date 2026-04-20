@@ -1,13 +1,22 @@
+from flask import Flask, request, redirect
 import csv
 from datetime import datetime
 
-def log_lead(name, email, interest):
-    """Logs a new investor lead to the Paracity Vault."""
-    try:
-        with open('lead_vault.csv', mode='a', newline='') as file:
-            writer = csv.writer(file)
-            writer.writerow([datetime.now(), name, email, interest, "PENDING"])
-        return True
-    except Exception as e:
-        print(f"Error logging lead: {e}")
-        return False
+app = Flask(__name__)
+
+@app.route('/submit', methods=['POST'])
+def submit():
+    name = request.form.get('name')
+    email = request.form.get('email')
+    interest = request.form.get('interest')
+    date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    with open('lead_vault.csv', 'a', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow([date, name, email, interest])
+    
+    # Redirect back to a 'thank you' or the original page
+    return "<h1>Success!</h1><p>Stephen Gidisu will contact you shortly.</p>"
+
+if __name__ == '__main__':
+    app.run(port=5000)
