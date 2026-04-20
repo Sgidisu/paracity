@@ -9,3 +9,5 @@ listener.log
 *.csv
 venv/
 .env
+*.log
+*.out
