@@ -54,11 +54,21 @@
     <p class="mb-6">As we navigate Q2 2026, we are seeing a significant increase in international interest within the Newark Metropolitan area. However, the barrier for many isn't the capital—it's the <strong>Compliance Infrastructure</strong>.</p> 
     <p class="mb-6">For foreign sellers, the IRS typically mandates a 15% withholding (FIRPTA). At Paracity, we bridge the gap between <strong>Property Management</strong> and <strong>Tax Compliance</strong>, ensuring clients have their Form W-7 documentation established long before a transaction occurs.</p> 
 </section>
-        <div class="bg-slate-900 text-white p-12 rounded-[2rem] text-center shadow-2xl">
-            <h3 class="text-2xl font-bold mb-4">Protect Your 2026 Equity</h3>
-            <p class="text-slate-400 mb-8 max-w-lg mx-auto">Is your asset positioned for the Q3 market shift? Paracity provides institutional-grade audits to ensure your NOI is optimized for maximum valuation.</p>
-            <a href="mailto:info@paracity.com" class="bg-teal-600 text-white px-8 py-4 rounded-full font-bold hover:bg-teal-500 transition inline-block">Request a Portfolio Review</a>
-        </div>
+<div id="contact" class="bg-slate-900 text-white p-12 rounded-[2rem] shadow-2xl"> 
+    <h3 class="text-2xl font-bold mb-2">Request Strategic Review</h3> 
+    <p class="text-slate-400 mb-8 text-sm uppercase tracking-widest font-bold">Priority Consultation | Q2 2026</p> 
+    <form class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left"> 
+        <input type="text" placeholder="Full Name" class="bg-slate-800 border border-slate-700 p-4 rounded-xl focus:outline-none focus:border-teal-500 transition"> 
+        <input type="email" placeholder="Email Address" class="bg-slate-800 border border-slate-700 p-4 rounded-xl focus:outline-none focus:border-teal-500 transition"> 
+        <select class="bg-slate-800 border border-slate-700 p-4 rounded-xl focus:outline-none focus:border-teal-500 transition text-slate-400"> 
+            <option>Select Interest...</option> 
+            <option>ITIN / Foreign Investment</option> 
+            <option>Asset Management (NOI Growth)</option> 
+            <option>Security & Compliance Audit</option> 
+        </select> 
+        <button type="submit" class="bg-teal-600 hover:bg-teal-500 text-white font-black uppercase tracking-widest py-4 rounded-xl transition">Submit Request</button> 
+    </form> 
+</div>
 
     </article>
 
@@ -66,5 +76,17 @@
         <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">&copy; 2026 Paracity Real Estate LLC | Proprietary Market Intelligence</p>
     </footer>
 
+<script> 
+    document.querySelector("form").addEventListener("submit", function(e) { 
+        e.preventDefault(); 
+        this.innerHTML = ` 
+            <div class="text-center py-8"> 
+                <div class="text-teal-500 text-5xl mb-4">✓</div> 
+                <h4 class="text-xl font-bold">Request Encrypted & Queued</h4> 
+                <p class="text-slate-400 mt-2">Stephen Gidisu will review your profile within 24 hours.</p> 
+            </div> 
+        `; 
+    }); 
+</script>
 </body>
 </html>
