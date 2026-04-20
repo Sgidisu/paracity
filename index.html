@@ -1,124 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.tailwindcss.com https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com;">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paracity | Newark Asset Management</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <title>Paracity Real Estate LLC | Strategic Commercial Asset Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .tab-active { color: #14b8a6; border-bottom: 2px solid #14b8a6; }
+        body { font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
+        .hero-bg {
+            background: linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.88)),
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
     </style>
 </head>
-<body class="bg-black text-white antialiased">
+<body class="bg-slate-50 text-slate-900">
 
-    <nav class="p-8 flex justify-between items-center border-b border-white/10">
-        <div class="text-2xl font-black tracking-tighter uppercase italic text-white">PARA<span class="text-teal-500">CITY</span></div>
-        <a href="https://sgidisu.github.io/paracity/" class="text-xs font-bold text-slate-500 hover:text-white uppercase tracking-widest transition underline decoration-teal-500 underline-offset-4">Back to Main</a>
+    <nav class="flex justify-between items-center p-6 bg-white shadow-sm sticky top-0 z-50">
+        <div class="text-2xl font-bold tracking-tighter text-slate-800 uppercase">PARA<span class="text-teal-600">CITY</span></div>
+        <div class="hidden md:flex items-center space-x-8 font-medium text-slate-600 text-sm">
+            <a href="#strategy" class="hover:text-teal-600 transition">Strategy</a>
+            <a href="#services" class="hover:text-teal-600 transition">Services</a>
+            <a href="#calculator" class="hover:text-teal-600 transition">Valuation Tool</a>
+            <a href="portal.html" class="bg-slate-900 text-white px-6 py-2 rounded-md hover:bg-teal-600 transition">Owner Portal</a>
+        </div>
     </nav>
 
-    <main class="max-w-5xl mx-auto py-16 px-6">
-        <h1 class="text-6xl md:text-8xl font-black tracking-tight mb-8">NEWARK <br><span class="text-teal-500 italic uppercase">Portfolio</span></h1>
-        <p class="text-xl text-slate-400 mb-12 max-w-xl border-l-2 border-teal-500 pl-6">Real-time transparency for commercial partners. Secure access to property audits and institutional-grade NOI reporting.</p>
-
-        <div class="flex gap-8 mb-12 border-b border-white/10 overflow-x-auto pb-4 no-scrollbar">
-            <button id="btn-audit" onclick="showTab('audit')" class="tab-active pb-2 font-black uppercase tracking-widest text-xs transition-all">01. Investor Audit</button>
-            <button id="btn-valuation" onclick="showTab('valuation')" class="text-slate-500 pb-2 hover:text-white font-black uppercase tracking-widest text-xs transition-all">02. Asset Valuation</button>
-            <button id="btn-roadmap" onclick="showTab('roadmap')" class="text-slate-500 pb-2 hover:text-white font-black uppercase tracking-widest text-xs transition-all">03. ITIN Roadmap</button>
+    <header class="hero-bg h-[80vh] flex items-center justify-center text-center text-white px-4">
+        <div class="max-w-4xl">
+            <span class="text-teal-400 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Newark Metropolitan Specialists</span>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">Institutional Wealth Engineering.</h1>
+            <p class="text-xl mb-10 font-light text-slate-400 max-w-2xl mx-auto">Paracity Real Estate LLC maximizes NOI through data-driven asset repositioning and aggressive cost-control strategies.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#calculator" class="bg-teal-600 text-white px-8 py-4 rounded-md font-bold hover:bg-teal-500 transition shadow-xl">Analyze Asset ROI</a>
+                <a href="#contact" class="bg-transparent border border-slate-700 px-8 py-4 rounded-md font-bold hover:bg-white hover:text-slate-900 transition">Management Proposal</a>
+            </div>
         </div>
+    </header>
 
-        <div id="audit" class="tab-content">
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white/5 p-10 rounded-3xl border border-white/10">
-                    <h3 class="text-2xl font-bold mb-4">Portfolio NOI Tracker</h3>
-                    <p class="text-slate-500 text-sm mb-6">Real-time tracking of Net Operating Income across your Newark asset cluster.</p>
-                    <div class="text-teal-500 text-xs font-bold uppercase tracking-tighter">Status: Migration in Progress</div>
+    <section class="bg-slate-900 py-10 text-white border-y border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <p class="text-[10px] text-slate-500 uppercase font-bold mb-1">Industrial Cap</p>
+                <div class="text-xl font-bold text-teal-400">4.85%</div>
+            </div>
+            <div>
+                <p class="text-[10px] text-slate-500 uppercase font-bold mb-1">Class A Office</p>
+                <div class="text-xl font-bold text-teal-400">7.20%</div>
+            </div>
+            <div>
+                <p class="text-[10px] text-slate-500 uppercase font-bold mb-1">Multifamily</p>
+                <div class="text-xl font-bold text-teal-400">5.40%</div>
+            </div>
+            <div>
+                <p class="text-[10px] text-slate-500 uppercase font-bold mb-1">Retail Vacancy</p>
+                <div class="text-xl font-bold text-teal-400">4.1%</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="strategy" class="bg-white py-24 border-b border-slate-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-20 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-slate-900 mb-6 tracking-tight leading-tight">Beyond Maintenance:<br>The Paracity Alpha</h2>
+                    <p class="text-slate-600 mb-8 leading-relaxed text-lg font-light">
+                        In a high-rate environment, property management isn't just about operations—it's about **financial engineering**. We utilize sub-market data to identify under-performing line items and reposition assets for institutional-grade exits.
+                    </p>
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-start">
+                            <div class="bg-teal-50 p-2 rounded-lg mr-4"><svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg></div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Cost-Segment Optimization</h4>
+                                <p class="text-sm text-slate-500">Average 14% OpEx reduction through vendor consolidation and energy audits.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-teal-50 p-2 rounded-lg mr-4"><svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1"></path></svg></div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Adaptive Use Repositioning</h4>
+                                <p class="text-sm text-slate-500">Transforming vacant Class B office into high-demand life science or tech hubs.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-block bg-slate-900 text-white px-8 py-3 rounded font-bold hover:bg-teal-600 transition">Request Strategic Audit</a>
                 </div>
-                <div class="bg-white/5 p-10 rounded-3xl border border-white/10">
-                    <h3 class="text-2xl font-bold mb-4 font-black italic">Document Vault</h3>
-                    <p class="text-slate-500 text-sm mb-6">Secure access to lease agreements, tax filings, and institutional property audits.</p>
-                    <div class="text-teal-500 text-xs font-bold uppercase tracking-tighter">Security: Encrypted Access</div>
+                <div class="relative">
+                    <div class="absolute -top-10 -right-10 w-64 h-64 bg-teal-50 rounded-full -z-10 blur-3xl"></div>
+                    <div class="bg-white p-10 rounded-3xl border border-slate-200 shadow-2xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-teal-600 text-white text-[10px] px-4 py-1 font-black uppercase tracking-widest">Case Study: Halsey St.</div>
+                        <h3 class="text-2xl font-bold mt-4 mb-6 text-slate-900">NOI Turnaround</h3>
+                        <div class="grid grid-cols-2 gap-8 mb-8">
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-bold uppercase mb-2">Portfolio Growth</p>
+                                <p class="text-3xl font-bold text-teal-600">+22%</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-bold uppercase mb-2">Equity Yield</p>
+                                <p class="text-3xl font-bold text-slate-800">1.8x</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-500 text-sm italic leading-relaxed">"Paracity’s strategy reduced our vacancy cost by 30% and improved our cap rate profile significantly before our 2026 refinance."</p>
+                        <div class="mt-8 pt-8 border-t border-slate-100 flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest leading-none">Newark, NJ</span>
+                            <div class="flex -space-x-2">
+                                <div class="w-8 h-8 rounded-full border-2 border-white bg-slate-200"></div>
+                                <div class="w-8 h-8 rounded-full border-2 border-white bg-slate-300"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-6 text-center mb-16">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">Core Management Competencies</h2>
+            <div class="h-1 w-12 bg-teal-600 mx-auto"></div>
+        </div>
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="p-10 bg-white border border-slate-200 rounded-2xl hover:border-teal-600 transition shadow-sm group">
+                <h3 class="text-xl font-bold mb-4 group-hover:text-teal-600">Asset Management</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">Strategic oversight including lease auditing, tax abatement optimization, and institutional reporting.</p>
+            </div>
+            <div class="p-10 bg-white border border-slate-200 rounded-2xl hover:border-teal-600 transition shadow-sm group">
+                <h3 class="text-xl font-bold mb-4 group-hover:text-teal-600">Development Advisory</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">Urban zoning support, entitlements, and sustainable repositioning for Class B/C commercial assets.</p>
+            </div>
+            <div class="p-10 bg-white border border-slate-200 rounded-2xl hover:border-teal-600 transition shadow-sm group">
+                <h3 class="text-xl font-bold mb-4 group-hover:text-teal-600">PropTech Solutions</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">Integration of smart building sensors and automated maintenance systems to drive operational Alpha.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="py-24 bg-white border-t border-slate-100">
+        <div class="max-w-5xl mx-auto bg-slate-900 rounded-[2.5rem] shadow-3xl overflow-hidden border border-slate-800">
+            <div class="p-10 text-white text-center border-b border-slate-800">
+                <h2 class="text-3xl font-bold tracking-tight">Institutional Valuation Engine</h2>
+                <p class="text-slate-500 text-xs mt-2 uppercase tracking-[0.2em]">Real-Time $V = \frac{NOI}{R}$ Sensitivity Analysis</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 bg-white">
+                <div class="p-10 lg:p-16 space-y-10 border-r border-slate-100">
+                    <div class="relative">
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3">Projected Annual NOI</label>
+                        <div class="flex items-center">
+                            <span class="absolute left-0 text-slate-300 font-bold text-2xl">$</span>
+                            <input type="number" id="noi" class="w-full pl-8 py-2 bg-transparent border-b-2 border-slate-100 focus:border-teal-600 outline-none transition-all text-3xl font-bold" placeholder="1,200,000">
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3">Market Cap Rate (R)</label>
+                        <div class="flex items-center">
+                            <input type="number" id="capRate" step="0.01" class="w-full py-2 bg-transparent border-b-2 border-slate-100 focus:border-teal-600 outline-none transition-all text-3xl font-bold" placeholder="6.25">
+                            <span class="absolute right-0 text-slate-300 font-bold text-2xl">%</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 grid grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-[9px] font-bold text-slate-400 uppercase mb-2 tracking-widest">LTV %</label>
+                            <input type="number" id="ltv" class="w-full bg-slate-50 rounded-lg py-3 px-4 border border-slate-100 focus:border-teal-600 outline-none font-bold" value="70">
+                        </div>
+                        <div>
+                            <label class="block text-[9px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Debt Int %</label>
+                            <input type="number" id="interestRate" step="0.1" class="w-full bg-slate-50 rounded-lg py-3 px-4 border border-slate-100 focus:border-teal-600 outline-none font-bold" value="6.75">
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="p-10 lg:p-16 bg-slate-50 flex flex-col justify-center items-center text-center">
+                    <span class="text-[10px] font-black text-teal-600 uppercase tracking-[0.3em] mb-4">Estimated Asset Value</span>
+                    <div id="valuationDisplay" class="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter mb-6">$0</div>
+                    
+                    <div class="w-full bg-white p-6 rounded-2xl border border-slate-200 shadow-sm mt-4">
+                        <p class="text-[9px] text-slate-400 uppercase font-black mb-1 tracking-widest">Cash-on-Cash Return</p>
+                        <div id="cocDisplay" class="text-3xl font-bold text-slate-800">0%</div>
+                        <div id="advisorAlert" class="mt-4"></div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div id="valuation" class="tab-content hidden">
-            <div class="bg-white/5 p-10 rounded-3xl border border-teal-500/30 max-w-2xl">
-                <h3 class="text-3xl font-black mb-6 uppercase">Quick Cap Rate Analysis</h3>
-                <div class="grid gap-6">
-                    <div>
-                        <label class="text-[10px] uppercase font-bold text-slate-500 mb-2 block">Net Operating Income ($)</label>
-                        <input type="number" id="noi" placeholder="e.g. 150000" class="w-full bg-black border border-white/20 p-4 rounded-xl text-white focus:border-teal-500 outline-none">
-                    </div>
-                    <div>
-                        <label class="text-[10px] uppercase font-bold text-slate-500 mb-2 block">Purchase Price ($)</label>
-                        <input type="number" id="price" placeholder="e.g. 2000000" class="w-full bg-black border border-white/20 p-4 rounded-xl text-white focus:border-teal-500 outline-none">
-                    </div>
-                    <button onclick="calcCap()" class="bg-teal-500 text-black font-black py-4 rounded-xl uppercase tracking-widest hover:bg-teal-400 transition">Calculate Performance</button>
-                    <div id="result" class="text-teal-400 font-black text-3xl mt-4 tracking-tighter"></div>
-                </div>
+        <div class="max-w-5xl mx-auto mt-8 bg-white p-8 rounded-3xl border border-slate-100 shadow-xl overflow-hidden">
+            <h3 class="text-xs font-black text-slate-900 uppercase tracking-[0.2em] mb-6 flex items-center">
+                <span class="w-2 h-2 bg-teal-600 rounded-full mr-2"></span> Cap Rate Sensitivity Matrix
+            </h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead class="text-[10px] text-slate-400 uppercase border-b border-slate-100">
+                        <tr>
+                            <th class="pb-4 font-bold tracking-widest">Yield Adjustment</th>
+                            <th class="pb-4 font-bold tracking-widest">Target Cap Rate</th>
+                            <th class="pb-4 text-right font-bold tracking-widest">Projected Market Value</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sensitivityBody" class="text-sm font-medium"></tbody>
+                </table>
             </div>
         </div>
+    </section>
 
-        <div id="roadmap" class="tab-content hidden">
-            <div class="bg-white/5 p-10 rounded-3xl border border-white/10 max-w-2xl">
-                <h3 class="text-3xl font-black mb-6 italic text-teal-500 uppercase">ITIN Strategy</h3>
-                <div class="space-y-6">
-                    <div class="border-l-2 border-teal-500 pl-6">
-                        <div class="text-xs font-bold text-slate-500 uppercase">Phase 01</div>
-                        <h4 class="font-bold text-white uppercase">Compliance</h4>
-                        <p class="text-slate-500 text-sm mt-1">IRS W-7 Filings and foreign investment entity structuring.</p>
-                    </div>
-                    <div class="border-l-2 border-white/20 pl-6">
-                        <div class="text-xs font-bold text-slate-500 uppercase">Phase 02</div>
-                        <h4 class="font-bold text-white uppercase">Deployment</h4>
-                        <p class="text-slate-500 text-sm mt-1">Newark Opportunity Zone asset selection and acquisition.</p>
-                    </div>
-                </div>
-            </div>
+    <section id="contact" class="bg-slate-900 py-24 text-center text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-600 to-slate-900"></div>
+        <div class="max-w-3xl mx-auto px-6 relative z-10">
+            <h2 class="text-4xl font-bold mb-6 tracking-tight">Scale Your Newark Portfolio.</h2>
+            <p class="text-slate-400 mb-10 text-xl font-light leading-relaxed">Partner with Paracity for institutional-grade oversight, technical transparency, and aggressive NOI growth.</p>
+            <a href="mailto:info@paracity.com" class="bg-teal-600 text-white px-12 py-5 rounded-full font-bold hover:scale-105 transition shadow-2xl inline-block">Request Management Proposal</a>
         </div>
+    </section>
 
-        <div class="mt-20 p-12 bg-teal-500 text-black rounded-3xl">
-            <h2 class="text-4xl font-black mb-4 uppercase italic">Request Portal Access</h2>
-            <p class="mb-8 font-bold text-sm uppercase opacity-70 italic">Initialize your Newark Asset Audit</p>
-            <form action="https://formspree.io/f/your_id" method="POST" class="grid md:grid-cols-2 gap-6">
-                <input type="text" name="name" placeholder="Full Name" required class="p-4 bg-transparent border-b-2 border-black placeholder:text-black/50 focus:outline-none font-bold">
-                <input type="email" name="email" placeholder="Professional Email" required class="p-4 bg-transparent border-b-2 border-black placeholder:text-black/50 focus:outline-none font-bold">
-                <button class="md:col-span-2 bg-black text-white font-black py-6 rounded-2xl uppercase tracking-widest hover:bg-slate-900 transition mt-4">Send Secure Request</button>
-            </form>
+    <div class="bg-white py-12 border-t border-slate-100">
+        <div class="max-w-6xl mx-auto px-6 flex flex-wrap justify-center gap-12 opacity-20 grayscale hover:grayscale-0 transition duration-500">
+             <div class="font-black text-slate-600 text-2xl italic tracking-tighter">NJREIA</div>
+             <div class="font-black text-slate-600 text-2xl italic tracking-tighter">BOMA-NEWARK</div>
+             <div class="font-black text-slate-600 text-2xl italic tracking-tighter">ICSC</div>
+             <div class="font-black text-slate-600 text-2xl italic tracking-tighter">CRE-TECH</div>
         </div>
-    </main>
+    </div>
+
+    <footer class="bg-slate-50 py-12 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center opacity-50 text-[10px] font-black uppercase tracking-widest text-slate-500">
+            <p>&copy; 2026 Paracity Real Estate LLC.</p>
+            <p>Newark Metropolitan Area | Asset Management & Development Advisory</p>
+        </div>
+    </footer>
 
     <script>
-        function showTab(id) {
-            // Hide all content
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            // Remove active classes from all buttons
-            document.querySelectorAll('nav button, div button').forEach(el => {
-                el.classList.remove('tab-active', 'text-teal-500');
-                el.classList.add('text-slate-500');
-            });
-            // Show selected content
-            document.getElementById(id).classList.remove('hidden');
-            // Set active button
-            const btn = document.getElementById('btn-' + id);
-            btn.classList.add('tab-active', 'text-teal-500');
-            btn.classList.remove('text-slate-500');
-        }
+        const noiInput = document.getElementById('noi');
+        const capInput = document.getElementById('capRate');
+        const ltvInput = document.getElementById('ltv');
+        const intInput = document.getElementById('interestRate');
+        const display = document.getElementById('valuationDisplay');
+        const sensitivityBody = document.getElementById('sensitivityBody');
+        const cocDisplay = document.getElementById('cocDisplay');
+        const advisorAlert = document.getElementById('advisorAlert');
 
-        function calcCap() {
-            const noi = document.getElementById('noi').value;
-            const price = document.getElementById('price').value;
-            const resultDiv = document.getElementById('result');
-            if(noi && price) {
-                const cap = ((noi / price) * 100).toFixed(2);
-                resultDiv.innerText = `TARGET CAP RATE: ${cap}%`;
-                resultDiv.classList.add('animate-pulse');
+        const currency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+        function calculateAll() {
+            const noi = parseFloat(noiInput.value) || 0;
+            const baseCap = parseFloat(capInput.value) / 100 || 0;
+            const ltv = parseFloat(ltvInput.value) / 100 || 0;
+            const interest = parseFloat(intInput.value) / 100 || 0;
+
+            if (noi > 0 && baseCap > 0) {
+                const valuation = noi / baseCap;
+                display.innerText = currency.format(valuation);
+
+                let tableHTML = '';
+                const shifts = [
+                    { label: '-50 bps', value: -0.005 },
+                    { label: 'Market', value: 0 },
+                    { label: '+50 bps', value: 0.005 }
+                ];
+                
+                shifts.forEach(shift => {
+                    const currentCap = baseCap + shift.value;
+                    const currentVal = noi / currentCap;
+                    const capLabel = (currentCap * 100).toFixed(2) + '%';
+                    const highlight = shift.value === 0 ? 'bg-teal-50/50 text-teal-600' : 'text-slate-600';
+                    
+                    tableHTML += `
+                        <tr class="${highlight} border-b border-slate-50">
+                            <td class="py-4 font-bold text-[10px] uppercase tracking-tighter">${shift.label}</td>
+                            <td class="py-4 font-mono font-bold">${capLabel}</td>
+                            <td class="py-4 text-right font-mono font-bold">${currency.format(currentVal)}</td>
+                        </tr>`;
+                });
+                sensitivityBody.innerHTML = tableHTML;
+
+                const loanAmount = valuation * ltv;
+                const equity = valuation - loanAmount;
+                const annualDebt = loanAmount * interest;
+                const cashFlow = noi - annualDebt;
+                const coc = (cashFlow / equity) * 100;
+
+                cocDisplay.innerText = coc.toFixed(2) + '%';
+                cocDisplay.classList.remove('text-teal-600', 'text-yellow-500', 'text-red-500');
+                
+                let alertHTML = "";
+                if (coc >= 8) {
+                    cocDisplay.classList.add('text-teal-600');
+                    alertHTML = `<p class="text-[9px] text-teal-600 font-black uppercase tracking-[0.2em]">Institutional Performance Reached</p>`;
+                } else if (coc >= 3) {
+                    cocDisplay.classList.add('text-yellow-500');
+                    alertHTML = `<p class="text-[9px] text-yellow-500 font-black uppercase tracking-[0.2em]">Asset Repositioning Recommended</p>`;
+                } else {
+                    cocDisplay.classList.add('text-red-500');
+                    alertHTML = `
+                        <div class="mt-4 p-4 bg-red-50 border border-red-100 rounded-2xl">
+                            <p class="text-[9px] text-red-500 font-black uppercase mb-1">Yield Compression Warning</p>
+                            <a href="#contact" class="text-[10px] text-red-600 underline font-bold">Request Performance Audit &rarr;</a>
+                        </div>`;
+                }
+                advisorAlert.innerHTML = alertHTML;
+
             } else {
-                resultDiv.innerText = "Enter NOI and Price";
+                display.innerText = "$0";
+                sensitivityBody.innerHTML = '';
+                cocDisplay.innerText = "0%";
+                advisorAlert.innerHTML = '';
             }
         }
+
+        [noiInput, capInput, ltvInput, intInput].forEach(input => {
+            input.addEventListener('input', calculateAll);
+        });
     </script>
 </body>
 </html>
