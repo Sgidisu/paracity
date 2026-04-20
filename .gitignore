@@ -4,3 +4,8 @@ venv/
 nohup.out
 backups/
 __pycache__/
+nohup.out
+listener.log
+*.csv
+venv/
+.env

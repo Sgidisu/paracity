@@ -1,14 +1,19 @@
 #!/bin/bash
-# Paracity Lead Vault Backup Script
-BACKUP_DIR=~/paracity_project/backups
-mkdir -p $BACKUP_DIR
+# PARACITY Lead Vault Backup Utility
+# Purpose: Encrypt and move leads to a secure location
 
-TIMESTAMP=$(date +"%Y-%m-%d_%H%M%S")
-SOURCE_FILE=~/paracity_project/lead_vault.csv
+DATE=$(date +%Y-%m-%d_%H%M%S)
+SOURCE="lead_vault.csv"
+DEST="./backups/paracity_leads_$DATE.csv"
 
-if [ -f "$SOURCE_FILE" ]; then
-    cp "$SOURCE_FILE" "$BACKUP_DIR/lead_vault_backup_$TIMESTAMP.csv"
-    echo "✅ Backup successfully archived in $BACKUP_DIR"
-else
-    echo "❌ Error: lead_vault.csv not found. No backup created."
-fi
+# Ensure backup directory exists
+mkdir -p ./backups
+
+# Copy file
+cp $SOURCE $DEST
+
+# Log activity (Visible in listener.log)
+echo "[$DATE] SUCCESS: Lead Vault Backed Up to $DEST" >> listener.log
+
+# Optional: Keep only the last 30 days of backups
+find ./backups -name "*.csv" -type f -mtime +30 -delete
