@@ -14,6 +14,7 @@ def submit():
     with open('lead_vault.csv', 'a', newline='') as f:
         writer = csv.writer(f)
         writer.writerow([date, name, email, interest])
+        print(f"\n\033[92m[ALERT] NEW LEAD CAPTURED: {name} ({interest})\033[0m")
     
     # Redirect back to a 'thank you' or the original page
     return "<h1>Success!</h1><p>Stephen Gidisu will contact you shortly.</p>"
