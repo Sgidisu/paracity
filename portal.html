@@ -40,26 +40,21 @@
                 </div>
             </header>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
-                <div class="lg:col-span-2 glass p-8 rounded-3xl min-h-[300px]">
-                    <div class="flex justify-between items-center mb-6">
-                        <p class="text-[10px] text-teal-500 font-black uppercase tracking-[0.2em]">Portfolio NOI Performance</p>
-                        <span class="text-[10px] text-slate-500 font-bold uppercase">Last 6 Months</span>
-                    </div>
-                    <canvas id="noiChart" height="100"></canvas>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="glass p-8 rounded-3xl">
+                    <p class="text-[10px] text-teal-500 font-black uppercase tracking-[0.2em] mb-4">Total Portfolio NOI</p>
+                    <div class="text-4xl font-black">$1.42M</div>
+                    <p class="text-green-500 text-[10px] mt-2 font-bold">+4.2% VS LAST QUARTER</p>
                 </div>
-
-                <div class="space-y-6">
-                    <div class="glass p-8 rounded-3xl">
-                        <p class="text-[10px] text-slate-400 font-black uppercase tracking-[0.2em] mb-4">Current Yield</p>
-                        <div class="text-4xl font-black text-white">10.4%</div>
-                        <p class="text-teal-500 text-[10px] mt-2 font-bold uppercase italic tracking-widest">+1.2% Market Alpha</p>
-                    </div>
-                    <div class="bg-teal-600 p-8 rounded-3xl shadow-2xl shadow-teal-900/20">
-                        <p class="text-[10px] text-teal-100 font-black uppercase tracking-[0.2em] mb-4">Active Equity</p>
-                        <div class="text-4xl font-black text-white">$4.2M</div>
-                        <p class="text-teal-900 text-[10px] mt-2 font-bold uppercase tracking-widest">Q2 Evaluation</p>
-                    </div>
+                <div class="glass p-8 rounded-3xl">
+                    <p class="text-[10px] text-slate-400 font-black uppercase tracking-[0.2em] mb-4">Portfolio Cap Rate</p>
+                    <div class="text-4xl font-black">5.85%</div>
+                    <p class="text-slate-500 text-[10px] mt-2 font-bold">MARKET AVERAGE: 6.20%</p>
+                </div>
+                <div class="bg-teal-600 p-8 rounded-3xl shadow-2xl shadow-teal-900/20">
+                    <p class="text-[10px] text-teal-100 font-black uppercase tracking-[0.2em] mb-4">Cash-on-Cash</p>
+                    <div class="text-4xl font-black text-white">10.4%</div>
+                    <p class="text-teal-200 text-[10px] mt-2 font-bold uppercase italic tracking-widest">Outperforming Benchmarks</p>
                 </div>
             </div>
 
@@ -83,91 +78,48 @@
                         <div class="w-full bg-slate-800 h-1.5 rounded-full">
                             <div class="bg-teal-500 h-1.5 rounded-full w-[92%]"></div>
                         </div>
+                        <div class="flex justify-between text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+                            <span>Occupancy</span>
+                            <span class="text-white">92%</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="bg-slate-900 rounded-3xl border border-slate-800 p-6">
-                    <h3 class="font-bold mb-6 text-sm uppercase tracking-widest">Compliance Audit Trail</h3>
+                    <h3 class="font-bold mb-6">Compliance Audit Trail</h3>
                     <div class="space-y-4">
-                        <div class="flex items-center justify-between p-4 bg-slate-950 rounded-2xl border border-slate-800 text-xs">
-                            <span>NJ Fire Safety Permit 2026</span>
-                            <span class="text-green-500 font-bold">VALID</span>
+                        <div class="flex items-center justify-between p-4 bg-slate-950 rounded-2xl border border-slate-800">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center mr-4">
+                                    <span class="text-green-500 text-xs">✓</span>
+                                </div>
+                                <span class="text-sm font-medium">NJ Fire Safety Permit 2026</span>
+                            </div>
+                            <span class="text-[10px] text-slate-500 font-bold">EXPIRES 03/2027</span>
                         </div>
-                        <div class="flex items-center justify-between p-4 bg-slate-950 rounded-2xl border border-slate-800 text-xs">
-                            <span>Property Insurance</span>
-                            <span class="text-yellow-500 font-bold">RENEWAL SOON</span>
+                        <div class="flex items-center justify-between p-4 bg-slate-950 rounded-2xl border border-slate-800">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center mr-4">
+                                    <span class="text-green-500 text-xs">✓</span>
+                                </div>
+                                <span class="text-sm font-medium">Elevator Certification</span>
+                            </div>
+                            <span class="text-[10px] text-slate-500 font-bold">UPDATED APR 2026</span>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-slate-950 rounded-2xl border border-slate-800">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-yellow-500/10 flex items-center justify-center mr-4">
+                                    <span class="text-yellow-500 text-xs">!</span>
+                                </div>
+                                <span class="text-sm font-medium">Property Insurance Renewal</span>
+                            </div>
+                            <span class="text-[10px] text-yellow-500 font-bold uppercase">Due in 15 Days</span>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="mt-8 bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden">
-                <div class="p-6 border-b border-slate-800 flex justify-between items-center">
-                    <h3 class="font-bold">Maintenance Incident Log</h3>
-                    <span class="text-[10px] bg-red-500/10 px-2 py-1 rounded text-red-500 font-black uppercase">2 Critical</span>
-                </div>
-                <div class="p-6 overflow-x-auto">
-                    <table class="w-full text-left text-sm">
-                        <thead class="text-[10px] text-slate-500 uppercase tracking-widest border-b border-slate-800">
-                            <tr>
-                                <th class="pb-4">Incident ID</th>
-                                <th class="pb-4">Asset</th>
-                                <th class="pb-4">Status</th>
-                                <th class="pb-4">Resolution Path</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-slate-300">
-                            <tr class="border-b border-slate-800/50">
-                                <td class="py-4 font-mono text-xs">INC-777-04</td>
-                                <td class="py-4 font-bold">777 Broad St.</td>
-                                <td class="py-4">
-                                    <span class="bg-yellow-500/10 text-yellow-500 px-2 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter">Triage</span>
-                                </td>
-                                <td class="py-4 text-xs">HVAC Sensor Malfunction. Tech dispatched 14:00.</td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </main>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const ctx = document.getElementById('noiChart').getContext('2d');
-        const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-        gradient.addColorStop(0, 'rgba(20, 184, 166, 0.4)');
-        gradient.addColorStop(1, 'rgba(20, 184, 166, 0)');
-
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr'],
-                datasets: [{
-                    label: 'Asset NOI ($)',
-                    data: [115000, 118000, 122000, 121000, 135000, 142000],
-                    borderColor: '#14b8a6',
-                    backgroundColor: gradient,
-                    fill: true,
-                    tension: 0.4,
-                    borderWidth: 3,
-                    pointRadius: 0,
-                    pointHoverRadius: 6
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                plugins: { legend: { display: false } },
-                scales: {
-                    x: { display: false },
-                    y: {
-                        grid: { color: 'rgba(255, 255, 255, 0.05)', borderColor: 'transparent' },
-                        ticks: { color: '#64748b', font: { size: 10, weight: '700' } }
-                    }
-                }
-            }
-        });
-    </script>
 </body>
 </html>
