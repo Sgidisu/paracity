@@ -167,6 +167,17 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-extrabold text-slate-900 uppercase tracking-tight">Strategic Market Focus</h2>
                 <div class="h-1 w-20 bg-teal-600 mx-auto mt-4"></div>
+<div class="bg-white p-8 border-t-4 border-teal-600 shadow-lg...">
+    <h4 class="font-bold text-xl mb-3 text-slate-800">Transit-Oriented Development</h4>
+    <p class="...">...</p>
+    <a href="?asset=Transit-Oriented-Portfolio" class="mt-4 inline-block text-teal-600 font-bold text-xs uppercase tracking-widest hover:text-slate-900 transition">Request Detail Audit &rarr;</a>
+</div>
+
+<div class="bg-white p-8 border-t-4 border-slate-900 shadow-lg...">
+    <h4 class="font-bold text-xl mb-3 text-slate-800">Last-Mile Industrial</h4>
+    <p class="...">...</p>
+    <a href="?asset=Port-Newark-Logistics-Hub" class="mt-4 inline-block text-slate-900 font-bold text-xs uppercase tracking-widest hover:text-teal-600 transition">Request Detail Audit &rarr;</a>
+</div>
                 <p class="text-slate-500 mt-6 max-w-2xl mx-auto text-lg">Targeting high-yield asset classes within the Newark Metropolitan Area's core growth corridors.</p>
             </div>
 
@@ -320,5 +331,24 @@
             formId: 'mojykkyw' 
         });
     </script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const assetName = params.get('asset');
+    
+    if (assetName) {
+        const messageBox = document.querySelector('textarea[name="message"]');
+        const contactSection = document.getElementById('contact');
+        const cleanName = assetName.replace(/-/g, ' '); 
+        
+        if (messageBox) {
+            messageBox.value = `I am interested in receiving asset details and a proposal for: ${cleanName}. Please contact me with the current NOI and occupancy audit.`;
+            
+            // This ensures the user is taken directly to the form to see the auto-filled text
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+});
+</script>
 </body>
 </html>

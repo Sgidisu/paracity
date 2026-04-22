@@ -10,6 +10,7 @@
     <style>
         body { font-family: 'Montserrat', sans-serif; }
         .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
+        .card-hover:hover { transform: translateY(-4px); transition: all 0.3s ease; border-color: rgba(20, 184, 166, 0.4); }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen">
@@ -20,9 +21,9 @@
             <nav class="space-y-4 flex-grow">
                 <a href="#" class="block bg-teal-600/10 text-teal-400 px-4 py-2 rounded-lg font-bold text-sm">Portfolio Overview</a>
                 
-                <a href="https://your-service.doorloop.com/login" target="_blank" class="block border border-teal-900/50 hover:bg-teal-600/20 text-slate-300 hover:text-white px-4 py-2 rounded-lg text-sm transition flex items-center justify-between">
+                <a href="https://app.doorloop.com/auth/login" target="_blank" class="block border border-teal-900/50 hover:bg-teal-600/20 text-slate-300 hover:text-white px-4 py-2 rounded-lg text-sm transition flex items-center justify-between">
                     <span>Asset Reports</span>
-                    <span class="text-[8px] bg-teal-500/20 px-1 rounded text-teal-400 uppercase">External</span>
+                    <span class="text-[8px] bg-teal-500/20 px-1 rounded text-teal-400 uppercase font-black">DoorLoop Login</span>
                 </a>
                 
                 <a href="#" class="block text-slate-400 hover:text-white px-4 py-2 text-sm transition">Compliance Vault</a>
@@ -46,17 +47,17 @@
             </header>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                <div class="glass p-8 rounded-3xl">
+                <div class="glass p-8 rounded-3xl card-hover">
                     <p class="text-[10px] text-teal-500 font-black uppercase tracking-[0.2em] mb-4">Total Portfolio NOI</p>
                     <div class="text-4xl font-black">$1.42M</div>
                     <p class="text-green-500 text-[10px] mt-2 font-bold">+4.2% VS LAST QUARTER</p>
                 </div>
-                <div class="glass p-8 rounded-3xl">
+                <div class="glass p-8 rounded-3xl card-hover">
                     <p class="text-[10px] text-slate-400 font-black uppercase tracking-[0.2em] mb-4">Portfolio Cap Rate</p>
                     <div class="text-4xl font-black">5.85%</div>
                     <p class="text-slate-500 text-[10px] mt-2 font-bold">MARKET AVERAGE: 6.20%</p>
                 </div>
-                <div class="bg-teal-600 p-8 rounded-3xl shadow-2xl shadow-teal-900/40">
+                <div class="bg-teal-600 p-8 rounded-3xl shadow-2xl shadow-teal-900/40 card-hover border-none">
                     <p class="text-[10px] text-teal-100 font-black uppercase tracking-[0.2em] mb-4">Cash-on-Cash</p>
                     <div class="text-4xl font-black text-white">10.4%</div>
                     <p class="text-teal-200 text-[10px] mt-2 font-bold uppercase italic tracking-widest">Outperforming Benchmarks</p>
