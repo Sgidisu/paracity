@@ -99,7 +99,7 @@
                             <span class="absolute right-4 text-slate-400 font-bold">%</span>
                         </div>
                     </div>
-                </div> 
+                </div>
 
                 <div class="bg-teal-50 rounded-2xl p-10 text-center border-2 border-teal-100 flex flex-col justify-center min-h-[220px]">
                     <span class="text-[10px] font-black text-teal-700 uppercase tracking-[0.2em] mb-4">Estimated Acquisition Price</span>
@@ -150,66 +150,39 @@
         </div>
     </section>
 
-    <section class="py-24 bg-slate-100">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-extrabold text-slate-900 uppercase tracking-tight">Strategic Market Focus</h2>
-                <div class="h-1 w-20 bg-teal-600 mx-auto mt-4"></div>
-                <p class="text-slate-500 mt-6 max-w-2xl mx-auto text-lg">Targeting high-yield asset classes within the Newark Metropolitan Area's core growth corridors.</p>
+    <section id="contact" class="bg-teal-600 py-24 text-white">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Optimize Your Portfolio?</h2>
+
+            <div data-fs-success class="hidden bg-white text-teal-700 px-4 py-3 rounded-xl mb-4 font-bold shadow-lg">
+                Thank you! Your proposal request has been received.
+            </div>
+            <div data-fs-error class="hidden bg-red-500 text-white px-4 py-3 rounded-xl mb-4 font-bold shadow-lg">
+                Oops! There was a problem submitting your form.
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 border-t-4 border-teal-600 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-                    <h4 class="font-bold text-xl mb-3 text-slate-800">Transit-Oriented Development</h4>
-                    <p class="text-sm text-slate-600 leading-relaxed mb-6">Strategic mixed-use assets within the Newark Penn and Broad Street corridors.</p>
-                    <a href="?asset=Transit-Oriented-Portfolio" class="text-teal-600 font-bold text-xs uppercase tracking-widest hover:text-slate-900 transition">Request Detail Audit &rarr;</a>
+            <form id="paracity-contact-form" class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl text-left text-slate-900">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Full Name</label>
+                        <input type="text" name="name" data-fs-field required class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-xl focus:border-teal-600 outline-none transition-all font-bold" placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Email</label>
+                        <input type="email" name="email" data-fs-field required class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-xl focus:border-teal-600 outline-none transition-all font-bold" placeholder="john@firm.com">
+                    </div>
                 </div>
-                <div class="bg-white p-8 border-t-4 border-slate-900 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-                    <h4 class="font-bold text-xl mb-3 text-slate-800">Last-Mile Industrial</h4>
-                    <p class="text-sm text-slate-600 leading-relaxed mb-6">Optimizing logistics facilities adjacent to Port Newark and EWR for global supply chain efficiency.</p>
-                    <a href="?asset=Port-Newark-Logistics-Hub" class="text-slate-900 font-bold text-xs uppercase tracking-widest hover:text-teal-600 transition">Request Detail Audit &rarr;</a>
+                <div class="mb-8">
+                    <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Asset Details</label>
+                    <textarea name="message" data-fs-field rows="4" required class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-xl focus:border-teal-600 outline-none transition-all font-bold" placeholder="Describe the asset..."></textarea>
                 </div>
-                <div class="bg-white p-8 border-t-4 border-teal-600 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-                    <h4 class="font-bold text-xl mb-3 text-slate-800">Adaptive Re-use</h4>
-                    <p class="text-sm text-slate-600 leading-relaxed mb-6">Converting historic downtown commercial assets into creative office and tech hubs.</p>
-                    <a href="?asset=Downtown-Newark-Adaptive-Reuse" class="text-teal-600 font-bold text-xs uppercase tracking-widest hover:text-slate-900 transition">Request Detail Audit &rarr;</a>
-                </div>
-            </div>
+                <button type="submit" data-fs-submit-btn class="w-full bg-slate-900 text-white py-5 rounded-xl font-black uppercase tracking-widest hover:bg-teal-700 transition-all transform hover:scale-[1.01]">
+                    Submit Proposal Request
+                </button>
+            </form>
         </div>
     </section>
 
-<section id="contact" class="bg-teal-600 py-24 text-white">
-    <div class="max-w-3xl mx-auto px-6 text-center">
-        <h2 class="text-4xl font-bold mb-6">Ready to Optimize Your Portfolio?</h2>
-
-        <div data-fs-success class="hidden bg-white text-teal-700 px-4 py-3 rounded-xl mb-4 font-bold shadow-lg">
-            Thank you! Your proposal request has been received.
-        </div>
-        <div data-fs-error class="hidden bg-red-500 text-white px-4 py-3 rounded-xl mb-4 font-bold shadow-lg">
-            Oops! There was a problem submitting your form.
-        </div>
-
-        <form id="paracity-contact-form" class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl text-left text-slate-900">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                    <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Full Name</label>
-                    <input type="text" name="name" data-fs-field required class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-xl focus:border-teal-600 outline-none transition-all font-bold" placeholder="John Doe">
-                </div>
-                <div>
-                    <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Email</label>
-                    <input type="email" name="email" data-fs-field required class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-xl focus:border-teal-600 outline-none transition-all font-bold" placeholder="john@firm.com">
-                </div>
-            </div>
-            <div class="mb-8">
-                <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Asset Details</label>
-                <textarea name="message" data-fs-field rows="4" required class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-xl focus:border-teal-600 outline-none transition-all font-bold" placeholder="Describe the asset..."></textarea>
-            </div>
-            <button type="submit" data-fs-submit-btn class="w-full bg-slate-900 text-white py-5 rounded-xl font-black uppercase tracking-widest hover:bg-teal-700 transition-all transform hover:scale-[1.01]">
-                Submit Proposal Request
-            </button>
-        </form>
-    </div>
-</section>
     <footer class="bg-white py-10 border-t border-slate-200">
         <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center opacity-60 text-sm">
             <p>&copy; 2026 Paracity Real Estate LLC.</p>
@@ -217,10 +190,9 @@
         </div>
     </footer>
 
-<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
-    
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
     <script>
-        // 2. Calculator Logic
+        // 1. Calculator Logic
         const noiInput = document.getElementById('noi');
         const capInput = document.getElementById('capRate');
         const ltvInput = document.getElementById('ltv');
@@ -265,19 +237,21 @@
         [noiInput, capInput, ltvInput, intInput].forEach(i => i.addEventListener('input', calculateAll));
         window.onload = calculateAll;
 
-        // 3. Official Formspree Initialization (Replaces the manual fetch)
+        // 2. Formspree Initialization
         window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
         formspree('initForm', { 
             formElement: '#paracity-contact-form', 
-            formId: 'mojykkyw',
+            formId: 'mojykkyw', 
             onSuccess: function() {
-                // This makes the form disappear and shows your custom success div
                 document.getElementById('paracity-contact-form').style.display = 'none';
                 document.querySelector('[data-fs-success]').classList.remove('hidden');
+            },
+            onError: function(err) {
+                console.error("Formspree Error:", err);
             }
         });
 
-        // 4. URL Asset Pre-fill
+        // 3. Asset Pre-fill from URL
         const params = new URLSearchParams(window.location.search);
         const asset = params.get('asset');
         if (asset) {
