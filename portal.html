@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.tailwindcss.com https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.tailwindcss.com https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.appfolio.com https://*.doorloop.com;">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Owner Portal | Paracity Real Estate LLC</title>
@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Montserrat', sans-serif; }
-        .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px border rgba(255,255,255,0.1); }
+        .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen">
@@ -19,7 +19,12 @@
             <div class="text-xl font-bold tracking-tighter mb-10 uppercase">PARA<span class="text-teal-500">CITY</span></div>
             <nav class="space-y-4 flex-grow">
                 <a href="#" class="block bg-teal-600/10 text-teal-400 px-4 py-2 rounded-lg font-bold text-sm">Portfolio Overview</a>
-                <a href="#" class="block text-slate-400 hover:text-white px-4 py-2 text-sm transition">Asset Reports</a>
+                
+                <a href="https://your-service.doorloop.com/login" target="_blank" class="block border border-teal-900/50 hover:bg-teal-600/20 text-slate-300 hover:text-white px-4 py-2 rounded-lg text-sm transition flex items-center justify-between">
+                    <span>Asset Reports</span>
+                    <span class="text-[8px] bg-teal-500/20 px-1 rounded text-teal-400 uppercase">External</span>
+                </a>
+                
                 <a href="#" class="block text-slate-400 hover:text-white px-4 py-2 text-sm transition">Compliance Vault</a>
                 <a href="#" class="block text-slate-400 hover:text-white px-4 py-2 text-sm transition">Management Chat</a>
             </nav>
@@ -31,10 +36,10 @@
         <main class="flex-grow p-6 md:p-12">
             <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-4">
                 <div>
-                    <h1 class="text-3xl font-bold">Institutional Dashboard</h1>
-                    <p class="text-slate-500 text-sm mt-1">Real-time performance for **Stephen Gidisu Portfolio**</p>
+                    <h1 class="text-3xl font-bold tracking-tight">Institutional Dashboard</h1>
+                    <p class="text-slate-500 text-sm mt-1 uppercase tracking-wider">Strategic Portfolio: <span class="text-slate-300">Stephen Gidisu</span></p>
                 </div>
-                <div class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-full flex items-center space-x-3">
+                <div class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-full flex items-center space-x-3 shadow-xl">
                     <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                     <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">Live Audit Sync: Active</span>
                 </div>
@@ -51,7 +56,7 @@
                     <div class="text-4xl font-black">5.85%</div>
                     <p class="text-slate-500 text-[10px] mt-2 font-bold">MARKET AVERAGE: 6.20%</p>
                 </div>
-                <div class="bg-teal-600 p-8 rounded-3xl shadow-2xl shadow-teal-900/20">
+                <div class="bg-teal-600 p-8 rounded-3xl shadow-2xl shadow-teal-900/40">
                     <p class="text-[10px] text-teal-100 font-black uppercase tracking-[0.2em] mb-4">Cash-on-Cash</p>
                     <div class="text-4xl font-black text-white">10.4%</div>
                     <p class="text-teal-200 text-[10px] mt-2 font-bold uppercase italic tracking-widest">Outperforming Benchmarks</p>
@@ -59,10 +64,10 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden">
-                    <div class="p-6 border-b border-slate-800 flex justify-between items-center">
-                        <h3 class="font-bold">Active Assets</h3>
-                        <span class="text-[10px] bg-slate-800 px-2 py-1 rounded text-slate-400">2 PROPERTIES</span>
+                <div class="bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden shadow-lg">
+                    <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-800/30">
+                        <h3 class="font-bold text-sm uppercase tracking-widest">Active Assets</h3>
+                        <span class="text-[10px] bg-slate-800 px-2 py-1 rounded text-slate-500 font-black uppercase">2 PROPERTIES</span>
                     </div>
                     <div class="p-6 space-y-6">
                         <div class="flex justify-between items-center">
@@ -75,8 +80,8 @@
                                 <p class="text-[10px] text-slate-600 uppercase font-black">Gross Income</p>
                             </div>
                         </div>
-                        <div class="w-full bg-slate-800 h-1.5 rounded-full">
-                            <div class="bg-teal-500 h-1.5 rounded-full w-[92%]"></div>
+                        <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-teal-500 h-1.5 rounded-full w-[92%] transition-all duration-1000"></div>
                         </div>
                         <div class="flex justify-between text-[10px] font-bold text-slate-500 uppercase tracking-widest">
                             <span>Occupancy</span>
@@ -85,13 +90,13 @@
                     </div>
                 </div>
 
-                <div class="bg-slate-900 rounded-3xl border border-slate-800 p-6">
-                    <h3 class="font-bold mb-6">Compliance Audit Trail</h3>
+                <div class="bg-slate-900 rounded-3xl border border-slate-800 p-6 shadow-lg">
+                    <h3 class="font-bold text-sm uppercase tracking-widest mb-6">Compliance Audit Trail</h3>
                     <div class="space-y-4">
                         <div class="flex items-center justify-between p-4 bg-slate-950 rounded-2xl border border-slate-800">
                             <div class="flex items-center">
                                 <div class="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center mr-4">
-                                    <span class="text-green-500 text-xs">✓</span>
+                                    <span class="text-green-500 text-xs font-bold">✓</span>
                                 </div>
                                 <span class="text-sm font-medium">NJ Fire Safety Permit 2026</span>
                             </div>
@@ -99,18 +104,7 @@
                         </div>
                         <div class="flex items-center justify-between p-4 bg-slate-950 rounded-2xl border border-slate-800">
                             <div class="flex items-center">
-                                <div class="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center mr-4">
-                                    <span class="text-green-500 text-xs">✓</span>
-                                </div>
-                                <span class="text-sm font-medium">Elevator Certification</span>
-                            </div>
-                            <span class="text-[10px] text-slate-500 font-bold">UPDATED APR 2026</span>
-                        </div>
-                        <div class="flex items-center justify-between p-4 bg-slate-950 rounded-2xl border border-slate-800">
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 rounded-full bg-yellow-500/10 flex items-center justify-center mr-4">
-                                    <span class="text-yellow-500 text-xs">!</span>
-                                </div>
+                                <div class="w-8 h-8 rounded-full bg-yellow-500/10 flex items-center justify-center mr-4 text-yellow-500">!</div>
                                 <span class="text-sm font-medium">Property Insurance Renewal</span>
                             </div>
                             <span class="text-[10px] text-yellow-500 font-bold uppercase">Due in 15 Days</span>
@@ -119,59 +113,32 @@
                 </div>
             </div>
 
-<div class="mt-8 bg-slate-900 rounded-3xl border border-teal-900/30 p-8"> 
-    <div class="flex items-center mb-6"> 
-        <div class="p-3 bg-teal-500/10 rounded-xl mr-4 text-teal-500"> 
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04custom tracking-widest leading-none"></path></svg> 
-        </div> 
-        <div> 
-            <h3 class="font-bold uppercase tracking-tight">IoT Security & Privacy Audit</h3> 
-            <p class="text-[10px] text-slate-500 uppercase font-black">Managed by Certified Security Professional</p> 
-        </div> 
-    </div> 
-    <div class="grid md:grid-cols-3 gap-4 text-center"> 
-        <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800"> 
-            <p class="text-[9px] text-slate-500 font-bold uppercase mb-1">CCTV Network</p> 
-            <p class="text-xs text-green-500 font-bold tracking-widest">ENCRYPTED</p> 
-        </div> 
-        <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800"> 
-            <p class="text-[9px] text-slate-500 font-bold uppercase mb-1">Smart Access</p> 
-            <p class="text-xs text-green-500 font-bold tracking-widest">WPA3 SECURE</p> 
-        </div> 
-        <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800"> 
-            <p class="text-[9px] text-slate-500 font-bold uppercase mb-1">Data Privacy</p> 
-            <p class="text-xs text-green-500 font-bold tracking-widest">AUDIT PASSED</p> 
-        </div> 
-    </div> 
-</div>
-
-<div class="mt-8 bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden"> 
-    <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50"> 
-        <h3 class="font-bold text-sm uppercase tracking-widest text-teal-500">Network Integrity Log</h3> 
-        <span class="text-[10px] text-slate-500 font-mono italic text-right">Last Scan: Just Now</span> 
-    </div> 
-    <div class="p-6 font-mono text-[10px] space-y-2 text-slate-400"> 
-        <div class="flex gap-4"><span class="text-teal-600">[PASS]</span> <span>Firewall: Newark_Broad_St_Node active. 0 intrusions.</span></div> 
-        <div class="flex gap-4"><span class="text-teal-600">[PASS]</span> <span>WPA3 handshake verified for Smart_Access_System.</span></div> 
-        <div class="flex gap-4"><span class="text-teal-600">[INFO]</span> <span>Authorized Login: S. Gidisu (Paracity_Admin)</span></div> 
-        <div class="flex gap-4"><span class="text-yellow-600">[WARN]</span> <span>Firmware update pending for IoT_Sensor_HVAC_04.</span></div> 
-    </div> 
-</div>
+            <div class="mt-8 bg-slate-900 rounded-3xl border border-teal-900/30 p-8 shadow-2xl">
+                <div class="flex items-center mb-6">
+                    <div class="p-3 bg-teal-500/10 rounded-xl mr-4 text-teal-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04L4 4"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="font-bold uppercase tracking-tight">IoT Security & Privacy Audit</h3>
+                        <p class="text-[10px] text-slate-500 uppercase font-black">Managed by Certified Security Professional</p>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-4 text-center">
+                    <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                        <p class="text-[9px] text-slate-500 font-bold uppercase mb-1">CCTV Network</p>
+                        <p class="text-xs text-green-500 font-bold tracking-widest">ENCRYPTED</p>
+                    </div>
+                    <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                        <p class="text-[9px] text-slate-500 font-bold uppercase mb-1">Data Privacy</p>
+                        <p class="text-xs text-green-500 font-bold tracking-widest">AUDIT PASSED</p>
+                    </div>
+                    <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                        <p class="text-[9px] text-slate-500 font-bold uppercase mb-1">System Health</p>
+                        <p class="text-xs text-teal-500 font-bold tracking-widest">99.9% UPTIME</p>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
-
-<script> 
-    function resolveIncident(id) { 
-        const rows = document.querySelectorAll("tr"); 
-        rows.forEach(row => { 
-            if (row.innerText.includes(id)) { 
-                const statusCell = row.querySelector("td:nth-child(3)"); 
-                if (statusCell) { 
-                    statusCell.innerHTML = `<span class="bg-green-500/10 text-green-500 px-2 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter">Resolved</span>`; 
-                } 
-            } 
-        }); 
-    } 
-</script>
 </body>
 </html>
