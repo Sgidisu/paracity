@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.tailwindcss.com https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.appfolio.com https://*.doorloop.com;">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.tailwindcss.com https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.appfolio.com https://*.doorloop.com;">
+    
     <title>Owner Portal | Paracity Real Estate LLC</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    
     <style>
         body { font-family: 'Montserrat', sans-serif; }
+        /* Professional Glassmorphism Effect */
         .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
-        .card-hover:hover { transform: translateY(-4px); transition: all 0.3s ease; border-color: rgba(20, 184, 166, 0.4); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); border-color: rgba(20, 184, 166, 0.4); }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen">
@@ -23,7 +28,7 @@
                 
                 <a href="https://app.doorloop.com/auth/login" target="_blank" class="block border border-teal-900/50 hover:bg-teal-600/20 text-slate-300 hover:text-white px-4 py-2 rounded-lg text-sm transition flex items-center justify-between">
                     <span>Asset Reports</span>
-                    <span class="text-[8px] bg-teal-500/20 px-1 rounded text-teal-400 uppercase font-black">DoorLoop Login</span>
+                    <span class="text-[8px] bg-teal-500/20 px-1 rounded text-teal-400 uppercase font-black">DoorLoop</span>
                 </a>
                 
                 <a href="#" class="block text-slate-400 hover:text-white px-4 py-2 text-sm transition">Compliance Vault</a>
@@ -38,7 +43,7 @@
             <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-4">
                 <div>
                     <h1 class="text-3xl font-bold tracking-tight">Institutional Dashboard</h1>
-                    <p class="text-slate-500 text-sm mt-1 uppercase tracking-wider">Strategic Portfolio: <span class="text-slate-300">Stephen Gidisu</span></p>
+                    <p class="text-slate-500 text-sm mt-1 uppercase tracking-wider">Managed Portfolio: <span class="text-slate-300">Stephen Gidisu</span></p>
                 </div>
                 <div class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-full flex items-center space-x-3 shadow-xl">
                     <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
@@ -60,7 +65,7 @@
                 <div class="bg-teal-600 p-8 rounded-3xl shadow-2xl shadow-teal-900/40 card-hover border-none">
                     <p class="text-[10px] text-teal-100 font-black uppercase tracking-[0.2em] mb-4">Cash-on-Cash</p>
                     <div class="text-4xl font-black text-white">10.4%</div>
-                    <p class="text-teal-200 text-[10px] mt-2 font-bold uppercase italic tracking-widest">Outperforming Benchmarks</p>
+                    <p class="text-teal-200 text-[10px] mt-2 font-bold uppercase italic tracking-widest">Benchmark Outperformance</p>
                 </div>
             </div>
 
@@ -101,14 +106,14 @@
                                 </div>
                                 <span class="text-sm font-medium">NJ Fire Safety Permit 2026</span>
                             </div>
-                            <span class="text-[10px] text-slate-500 font-bold">EXPIRES 03/2027</span>
+                            <span class="text-[10px] text-slate-500 font-bold uppercase">Active</span>
                         </div>
                         <div class="flex items-center justify-between p-4 bg-slate-950 rounded-2xl border border-slate-800">
                             <div class="flex items-center">
                                 <div class="w-8 h-8 rounded-full bg-yellow-500/10 flex items-center justify-center mr-4 text-yellow-500">!</div>
-                                <span class="text-sm font-medium">Property Insurance Renewal</span>
+                                <span class="text-sm font-medium">Insurance Renewal</span>
                             </div>
-                            <span class="text-[10px] text-yellow-500 font-bold uppercase">Due in 15 Days</span>
+                            <span class="text-[10px] text-yellow-500 font-bold uppercase">15 Days Remaining</span>
                         </div>
                     </div>
                 </div>
@@ -120,22 +125,22 @@
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04L4 4"></path></svg>
                     </div>
                     <div>
-                        <h3 class="font-bold uppercase tracking-tight">IoT Security & Privacy Audit</h3>
-                        <p class="text-[10px] text-slate-500 uppercase font-black">Managed by Certified Security Professional</p>
+                        <h3 class="font-bold uppercase tracking-tight">Security & Privacy Governance</h3>
+                        <p class="text-[10px] text-slate-500 uppercase font-black">Verified System Integrity</p>
                     </div>
                 </div>
                 <div class="grid md:grid-cols-3 gap-4 text-center">
                     <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
                         <p class="text-[9px] text-slate-500 font-bold uppercase mb-1">CCTV Network</p>
-                        <p class="text-xs text-green-500 font-bold tracking-widest">ENCRYPTED</p>
+                        <p class="text-xs text-green-500 font-bold tracking-widest uppercase">Encrypted</p>
                     </div>
                     <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
-                        <p class="text-[9px] text-slate-500 font-bold uppercase mb-1">Data Privacy</p>
-                        <p class="text-xs text-green-500 font-bold tracking-widest">AUDIT PASSED</p>
+                        <p class="text-[9px] text-slate-500 font-bold uppercase mb-1">Data Sovereignty</p>
+                        <p class="text-xs text-green-500 font-bold tracking-widest uppercase">Compliance Verified</p>
                     </div>
                     <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
-                        <p class="text-[9px] text-slate-500 font-bold uppercase mb-1">System Health</p>
-                        <p class="text-xs text-teal-500 font-bold tracking-widest">99.9% UPTIME</p>
+                        <p class="text-[9px] text-slate-500 font-bold uppercase mb-1">Asset Uptime</p>
+                        <p class="text-xs text-teal-500 font-bold tracking-widest uppercase">99.9% Nominal</p>
                     </div>
                 </div>
             </div>
