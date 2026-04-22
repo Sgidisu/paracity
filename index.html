@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.tailwindcss.com https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://formspree.io;">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.tailwindcss.com https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://formspree.io;">
     <title>Paracity Real Estate LLC | Commercial Development & Management</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
@@ -15,7 +17,6 @@
         }
     </style>
 </head>
-<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 <body class="bg-slate-50 text-slate-900">
 
     <nav class="flex justify-between items-center p-6 bg-white shadow-sm sticky top-0 z-50">
@@ -75,7 +76,7 @@
     </section>
 
     <section id="calculator" class="py-24 bg-slate-50">
-        <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden font-sans">
+        <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden">
             <div class="bg-slate-900 p-8 text-white">
                 <h2 class="text-2xl font-bold tracking-tight">Institutional Asset Valuation</h2>
                 <p class="text-slate-400 text-sm mt-1">Estimate market value based on Net Operating Income and regional Cap Rate benchmarks.</p>
@@ -104,17 +105,14 @@
                     <span class="text-[10px] font-black text-teal-700 uppercase tracking-[0.2em] mb-4">Estimated Acquisition Price</span>
                     <div id="valuationDisplay" class="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter mb-2">$0</div>
                     <div class="h-1 w-12 bg-teal-600 mx-auto rounded-full"></div>
-                    <p class="text-[10px] text-slate-500 mt-6 italic uppercase tracking-tighter">Derived via $V = \frac{NOI}{R}$ analysis</p>
+                    <p class="text-[10px] text-slate-500 mt-6 italic uppercase tracking-tighter">Derived via Capitalization Analysis</p>
                 </div>
             </div>
         </div>
 
-        <div class="max-w-4xl mx-auto mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 font-sans">
+        <div class="max-w-4xl mx-auto mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-xl">
-                <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-xs font-black text-slate-900 uppercase tracking-widest">Cap Rate Sensitivity</h3>
-                    <span class="text-[9px] bg-slate-100 px-2 py-1 rounded text-slate-500 uppercase font-bold">Market Risk</span>
-                </div>
+                <h3 class="text-xs font-black text-slate-900 uppercase tracking-widest mb-6">Cap Rate Sensitivity</h3>
                 <table class="w-full text-left text-sm">
                     <thead class="text-slate-500 border-b border-slate-100">
                         <tr>
@@ -124,36 +122,26 @@
                     </thead>
                     <tbody id="sensitivityBody" class="text-slate-700"></tbody>
                 </table>
-                <p class="text-[10px] text-slate-400 mt-6 italic">*Analysis based on ±0.50% yield shift.</p>
             </div>
 
             <div class="bg-slate-900 p-8 rounded-2xl shadow-xl text-white">
-                <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-xs font-black text-teal-400 uppercase tracking-widest">Financing & ROI</h3>
-                    <span class="text-[9px] bg-slate-800 px-2 py-1 rounded text-slate-400 font-bold">ADVISORY</span>
-                </div>
+                <h3 class="text-xs font-black text-teal-400 uppercase tracking-widest mb-6">Financing & ROI</h3>
                 <div class="space-y-6">
                     <div class="relative">
-                        <label class="block text-[10px] text-slate-500 font-bold uppercase mb-2 tracking-wider">Loan-to-Value (LTV)</label>
-                        <div class="flex items-center">
-                            <input type="number" id="ltv" class="w-full bg-slate-800 border border-slate-700 rounded-xl py-3 px-4 text-white focus:ring-1 focus:ring-teal-500 outline-none transition font-bold" value="70">
-                            <span class="absolute right-4 text-slate-500 font-bold">%</span>
-                        </div>
+                        <label class="block text-[10px] text-slate-500 font-bold uppercase mb-2 tracking-wider">Loan-to-Value (LTV) %</label>
+                        <input type="number" id="ltv" class="w-full bg-slate-800 border border-slate-700 rounded-xl py-3 px-4 text-white outline-none" value="70">
                     </div>
                     <div class="relative">
-                        <label class="block text-[10px] text-slate-500 font-bold uppercase mb-2 tracking-wider">Interest Rate</label>
-                        <div class="flex items-center">
-                            <input type="number" id="interestRate" step="0.1" class="w-full bg-slate-800 border border-slate-700 rounded-xl py-3 px-4 text-white focus:ring-1 focus:ring-teal-500 outline-none transition font-bold" value="6.5">
-                            <span class="absolute right-4 text-slate-500 font-bold">%</span>
-                        </div>
+                        <label class="block text-[10px] text-slate-500 font-bold uppercase mb-2 tracking-wider">Interest Rate %</label>
+                        <input type="number" id="interestRate" step="0.1" class="w-full bg-slate-800 border border-slate-700 rounded-xl py-3 px-4 text-white outline-none" value="6.5">
                     </div>
                     <div class="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-slate-800">
                         <div>
-                            <p class="text-[9px] text-slate-500 uppercase font-black mb-1 tracking-widest">Annual Debt</p>
+                            <p class="text-[9px] text-slate-500 uppercase font-black mb-1">Annual Debt</p>
                             <div id="debtServiceDisplay" class="text-lg font-bold text-white tracking-tight">$0</div>
                         </div>
                         <div>
-                            <p class="text-[9px] text-teal-500 uppercase font-black mb-1 tracking-widest">Cash-on-Cash</p>
+                            <p class="text-[9px] text-teal-500 uppercase font-black mb-1">Cash-on-Cash</p>
                             <div id="cocDisplay" class="text-lg font-bold text-teal-400 tracking-tight">0%</div>
                         </div>
                     </div>
@@ -167,107 +155,64 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-extrabold text-slate-900 uppercase tracking-tight">Strategic Market Focus</h2>
                 <div class="h-1 w-20 bg-teal-600 mx-auto mt-4"></div>
-<div class="bg-white p-8 border-t-4 border-teal-600 shadow-lg...">
-    <h4 class="font-bold text-xl mb-3 text-slate-800">Transit-Oriented Development</h4>
-    <p class="...">...</p>
-    <a href="?asset=Transit-Oriented-Portfolio" class="mt-4 inline-block text-teal-600 font-bold text-xs uppercase tracking-widest hover:text-slate-900 transition">Request Detail Audit &rarr;</a>
-</div>
-
-<div class="bg-white p-8 border-t-4 border-slate-900 shadow-lg...">
-    <h4 class="font-bold text-xl mb-3 text-slate-800">Last-Mile Industrial</h4>
-    <p class="...">...</p>
-    <a href="?asset=Port-Newark-Logistics-Hub" class="mt-4 inline-block text-slate-900 font-bold text-xs uppercase tracking-widest hover:text-teal-600 transition">Request Detail Audit &rarr;</a>
-</div>
                 <p class="text-slate-500 mt-6 max-w-2xl mx-auto text-lg">Targeting high-yield asset classes within the Newark Metropolitan Area's core growth corridors.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-white p-8 border-t-4 border-teal-600 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                     <h4 class="font-bold text-xl mb-3 text-slate-800">Transit-Oriented Development</h4>
-                    <p class="text-sm text-slate-600 leading-relaxed mb-6">Strategic mixed-use assets within the Newark Penn and Broad Street corridors to capture intensifying commuter demand and urban revitalization.</p>
-                    <div class="text-[10px] font-black text-teal-600 tracking-widest uppercase bg-teal-50 inline-block px-2 py-1 rounded">Transit Hub Focus</div>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">Strategic mixed-use assets within the Newark Penn and Broad Street corridors.</p>
+                    <a href="?asset=Transit-Oriented-Portfolio" class="text-teal-600 font-bold text-xs uppercase tracking-widest hover:text-slate-900 transition">Request Detail Audit &rarr;</a>
                 </div>
                 <div class="bg-white p-8 border-t-4 border-slate-900 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                     <h4 class="font-bold text-xl mb-3 text-slate-800">Last-Mile Industrial</h4>
-                    <p class="text-sm text-slate-600 leading-relaxed mb-6">Optimizing high-velocity logistics facilities adjacent to Port Newark and EWR for global supply chain efficiency and regional distribution.</p>
-                    <div class="text-[10px] font-black text-slate-900 tracking-widest uppercase bg-slate-100 inline-block px-2 py-1 rounded">Logistics / EWR</div>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">Optimizing logistics facilities adjacent to Port Newark and EWR for global supply chain efficiency.</p>
+                    <a href="?asset=Port-Newark-Logistics-Hub" class="text-slate-900 font-bold text-xs uppercase tracking-widest hover:text-teal-600 transition">Request Detail Audit &rarr;</a>
                 </div>
                 <div class="bg-white p-8 border-t-4 border-teal-600 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                     <h4 class="font-bold text-xl mb-3 text-slate-800">Adaptive Re-use</h4>
-                    <p class="text-sm text-slate-600 leading-relaxed mb-6">Converting underutilized historic downtown commercial assets into modern creative office, tech hubs, and boutique retail spaces.</p>
-                    <div class="text-[10px] font-black text-teal-600 tracking-widest uppercase bg-teal-50 inline-block px-2 py-1 rounded">Downtown Newark</div>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">Converting historic downtown commercial assets into creative office and tech hubs.</p>
+                    <a href="?asset=Downtown-Newark-Adaptive-Reuse" class="text-teal-600 font-bold text-xs uppercase tracking-widest hover:text-slate-900 transition">Request Detail Audit &rarr;</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 bg-white border-t border-slate-100">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <h3 class="text-sm font-black text-slate-400 uppercase tracking-[0.3em] mb-10">Newark Market Benchmarks (Q2 2026)</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-6 bg-slate-50 rounded-xl border border-slate-100">
-                    <p class="text-xs font-bold text-slate-500 uppercase mb-2">Industrial / Port</p>
-                    <div class="text-2xl font-bold text-slate-900">4.5% - 5.2% <span class="text-sm font-normal text-slate-400">Cap Rate</span></div>
-                </div>
-                <div class="p-6 bg-slate-50 rounded-xl border border-slate-100">
-                    <p class="text-xs font-bold text-slate-500 uppercase mb-2">Multifamily / Transit</p>
-                    <div class="text-2xl font-bold text-slate-900">5.5% - 6.2% <span class="text-sm font-normal text-slate-400">Cap Rate</span></div>
-                </div>
-                <div class="p-6 bg-slate-50 rounded-xl border border-slate-100">
-                    <p class="text-xs font-bold text-slate-500 uppercase mb-2">Downtown Office</p>
-                    <div class="text-2xl font-bold text-slate-900">7.0% - 8.5% <span class="text-sm font-normal text-slate-400">Cap Rate</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-<section id="contact" class="bg-teal-600 py-24 text-white">
-    <div class="max-w-3xl mx-auto px-6">
-        <div class="text-center mb-12">
+    <section id="contact" class="bg-teal-600 py-24 text-white">
+        <div class="max-w-3xl mx-auto px-6 text-center">
             <h2 class="text-4xl font-bold mb-6">Ready to Optimize Your Portfolio?</h2>
-            <p class="text-teal-100 text-lg">Contact Paracity Real Estate LLC today for a comprehensive asset audit and management proposal.</p>
-        </div>
-
-        <div data-fs-success class="hidden mb-8 p-6 bg-slate-900 text-teal-400 font-bold rounded-xl animate-pulse shadow-2xl">
-            ✓ Request Received. An executive will contact you shortly.
-        </div>
-        <div data-fs-error class="hidden mb-8 p-6 bg-red-700 text-white font-bold rounded-xl shadow-2xl">
-            ⚠ There was an error with your submission. Please try again.
-        </div>
-
-        <form id="paracity-contact-form" class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl text-left">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                    <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Full Name</label>
-                    <input type="text" name="name" required data-fs-field
-                        class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-xl focus:border-teal-600 focus:bg-white outline-none transition-all text-slate-900 font-bold" placeholder="John Doe">
+            <form id="paracity-contact-form" class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl text-left text-slate-900">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Full Name</label>
+                        <input type="text" name="name" required class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-xl focus:border-teal-600 outline-none transition-all font-bold" placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Email</label>
+                        <input type="email" name="email" required class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-xl focus:border-teal-600 outline-none transition-all font-bold" placeholder="john@firm.com">
+                    </div>
                 </div>
-                <div>
-                    <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Professional Email</label>
-                    <input type="email" name="email" required data-fs-field
-                        class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-xl focus:border-teal-600 focus:bg-white outline-none transition-all text-slate-900 font-bold" placeholder="john@firm.com">
+                <div class="mb-8">
+                    <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Asset Details</label>
+                    <textarea name="message" rows="4" required class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-xl focus:border-teal-600 outline-none transition-all font-bold" placeholder="Describe the asset..."></textarea>
                 </div>
-            </div>
-            <div class="mb-8">
-                <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Asset Details / Inquiries</label>
-                <textarea name="message" rows="4" required data-fs-field
-                    class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-xl focus:border-teal-600 focus:bg-white outline-none transition-all text-slate-900 font-bold" placeholder="Describe the asset or service required..."></textarea>
-            </div>
-            <button type="submit" data-fs-submit-btn
-                class="w-full bg-slate-900 text-white px-10 py-5 rounded-xl font-black uppercase tracking-widest hover:bg-teal-600 transition-all transform hover:scale-[1.02] active:scale-95 disabled:opacity-50">
-                Submit Proposal Request
-            </button>
-        </form>
-    </div>
-</section>
+                <button type="submit" class="w-full bg-slate-900 text-white py-5 rounded-xl font-black uppercase tracking-widest hover:bg-teal-700 transition-all transform hover:scale-[1.01]">
+                    Submit Proposal Request
+                </button>
+            </form>
+        </div>
+    </section>
+
     <footer class="bg-white py-10 border-t border-slate-200">
         <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center opacity-60 text-sm">
-            <p>&copy; 2026 Paracity Real Estate LLC. All Rights Reserved.</p>
+            <p>&copy; 2026 Paracity Real Estate LLC.</p>
             <p>Newark, New Jersey</p>
         </div>
     </footer>
 
+    <script src="https://unpkg.com/@formspree/ajax@1"></script>
     <script>
+        // Calculation Logic
         const noiInput = document.getElementById('noi');
         const capInput = document.getElementById('capRate');
         const ltvInput = document.getElementById('ltv');
@@ -290,65 +235,37 @@
                 display.innerText = currency.format(valuation);
 
                 let tableHTML = '';
-                const shifts = [-0.005, 0, 0.005];
-                shifts.forEach(shift => {
+                [-0.005, 0, 0.005].forEach(shift => {
                     const currentCap = baseCap + shift;
                     const currentVal = noi / currentCap;
-                    const label = (currentCap * 100).toFixed(2) + '%';
                     const highlight = shift === 0 ? 'font-bold text-teal-600 bg-teal-50' : '';
-                    tableHTML += `<tr class="${highlight}"><td class="py-2">${label}</td><td class="py-2 text-right">${currency.format(currentVal)}</td></tr>`;
+                    tableHTML += `<tr class="${highlight}"><td class="py-2">${(currentCap * 100).toFixed(2)}%</td><td class="py-2 text-right">${currency.format(currentVal)}</td></tr>`;
                 });
                 sensitivityBody.innerHTML = tableHTML;
 
                 const loanAmount = valuation * ltv;
-                const equity = valuation - loanAmount;
                 const annualDebt = loanAmount * interest;
                 const cashFlow = noi - annualDebt;
-                const coc = (cashFlow / equity) * 100;
+                const coc = ((cashFlow / (valuation - loanAmount)) * 100).toFixed(2);
 
                 debtDisplay.innerText = currency.format(annualDebt);
-                cocDisplay.innerText = coc.toFixed(2) + '%';
-
-                cocDisplay.classList.remove('text-teal-400', 'text-yellow-500', 'text-red-500');
-                if (coc >= 8) cocDisplay.classList.add('text-teal-400');
-                else if (coc >= 3) cocDisplay.classList.add('text-yellow-500');
-                else cocDisplay.classList.add('text-red-500');
-            } else {
-                display.innerText = "$0";
-                sensitivityBody.innerHTML = '';
-                debtDisplay.innerText = "$0";
-                cocDisplay.innerText = "0%";
+                cocDisplay.innerText = coc + '%';
             }
         }
 
-        [noiInput, capInput, ltvInput, intInput].forEach(input => {
-            input.addEventListener('input', calculateAll);
-        });
-// Formspree AJAX Integration
+        [noiInput, capInput, ltvInput, intInput].forEach(i => i.addEventListener('input', calculateAll));
+
+        // Formspree Initialization
         window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-        formspree('initForm', { 
-            formElement: '#paracity-contact-form', 
-            formId: 'mojykkyw' 
-        });
-    </script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    const assetName = params.get('asset');
-    
-    if (assetName) {
-        const messageBox = document.querySelector('textarea[name="message"]');
-        const contactSection = document.getElementById('contact');
-        const cleanName = assetName.replace(/-/g, ' '); 
-        
-        if (messageBox) {
-            messageBox.value = `I am interested in receiving asset details and a proposal for: ${cleanName}. Please contact me with the current NOI and occupancy audit.`;
-            
-            // This ensures the user is taken directly to the form to see the auto-filled text
-            contactSection.scrollIntoView({ behavior: 'smooth' });
+        formspree('initForm', { formElement: '#paracity-contact-form', formId: 'mojykkyw' });
+
+        // URL Asset Pre-fill
+        const params = new URLSearchParams(window.location.search);
+        const asset = params.get('asset');
+        if (asset) {
+            document.querySelector('textarea[name="message"]').value = `I am interested in: ${asset.replace(/-/g, ' ')}. Please provide NOI audit data.`;
+            document.getElementById('contact').scrollIntoView();
         }
-    }
-});
-</script>
+    </script>
 </body>
 </html>
